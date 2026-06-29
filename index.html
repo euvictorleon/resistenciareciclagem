@@ -4,66 +4,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resistência Reciclagem</title>
+    <!-- Importando a fonte Inter do Google Fonts (deixa o visual bem moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #121212; color: #f5f5f5; margin: 0; padding: 0; }
-        header { background-color: #1e1e1e; padding: 40px 20px; text-align: center; border-bottom: 3px solid #4CAF50; }
-        h1 { color: #4CAF50; margin: 0; font-size: 2.5em; }
-        p.subtitle { color: #aaaaaa; font-size: 1.2em; margin-top: 10px; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .section { margin-bottom: 40px; background-color: #1e1e1e; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        h2 { color: #4CAF50; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0; }
-        ul { line-height: 1.8; color: #cccccc; padding-left: 20px; }
-        .materials { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
-        .material-card { background-color: #2a2a2a; padding: 15px; border-radius: 5px; flex: 1; min-width: 150px; text-align: center; border-left: 4px solid #4CAF50; }
-        .aviso { margin-top: 20px; font-size: 0.9em; color: #ff6b6b; font-style: italic; }
-        .cta-button { display: block; width: 100%; max-width: 300px; margin: 30px auto; padding: 15px 20px; background-color: #25D366; color: white; text-align: center; text-decoration: none; font-size: 1.2em; font-weight: bold; border-radius: 50px; transition: background-color 0.3s; }
-        .cta-button:hover { background-color: #128C7E; }
-        footer { text-align: center; padding: 20px; background-color: #0a0a0a; color: #777; font-size: 0.9em; }
+        /* Variáveis de cores baseadas na sua referência */
+        :root {
+            --bg-color: #09090b;
+            --card-bg: #18181b;
+            --border-color: #27272a;
+            --text-main: #fafafa;
+            --text-muted: #a1a1aa;
+            --accent-green: #22c55e; /* Um verde mais moderno e suave para combinar com reciclagem */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container centralizado */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Cabeçalho / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-green);
+        }
+
+        .btn-header {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            /* Efeito de brilho igual da sua foto */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); 
+        }
+
+        .btn-header:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Seção Hero (A principal lá em cima) */
+        .hero {
+            padding: 100px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Seção de Cards (O que nós coletamos) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #3f3f46;
+        }
+
+        .card-number {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Aviso de rejeitos */
+        .warning {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #ef4444; /* Vermelho suave */
+            font-style: italic;
+        }
+
+        /* Responsividade para celular */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 60px 0;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Resistência Reciclagem</h1>
-    <p class="subtitle">Gestão Inteligente de Resíduos em Curitiba e RMC</p>
-</header>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Resistência<span>.</span></div>
+            <a href="#" class="btn-header">Falar com consultor</a>
+        </header>
 
-<div class="container">
-    <div class="section">
-        <h2>Transforme seu lixo em impacto positivo</h2>
-        <p>Atendemos condomínios, empresas e residências em Curitiba e Região Metropolitana, garantindo a destinação correta dos seus materiais recicláveis com transparência e eficiência.</p>
+        <!-- Seção Principal -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-tag">● Gestão Inteligente em Curitiba e RMC</div>
+                <h1>Transforme seu lixo em impacto positivo.</h1>
+                <p>Atendemos condomínios, empresas e residências garantindo a destinação correta dos seus materiais recicláveis com transparência, eficiência e estratégia.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">Agendar coleta</a>
+                    <a href="#" class="btn-secondary">Como funciona</a>
+                </div>
+            </div>
+
+            <!-- Cards inspirados na sua referência -->
+            <div class="features-grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3>Papel e Papelão</h3>
+                    <p>Coleta de caixas, jornais, revistas e embalagens limpas para retorno ao ciclo produtivo.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3>Plástico</h3>
+                    <p>Destinação correta de garrafas PET, embalagens, potes e tampas plásticas.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3>Metal e Alumínio</h3>
+                    <p>Reciclagem de latinhas, sucatas leves e conservas, gerando alto impacto de reaproveitamento.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">4</div>
+                    <h3>Vidro</h3>
+                    <p>Garrafas e frascos inteiros ou quebrados (embalados corretamente para segurança).</p>
+                </div>
+            </div>
+        </section>
+
+        <p class="warning">*Política de Rejeitos: Não coletamos lixo orgânico, resíduos hospitalares, tóxicos ou entulhos de construção.</p>
+        <br><br>
     </div>
-
-    <div class="section">
-        <h2>O que nós coletamos?</h2>
-        <div class="materials">
-            <div class="material-card">📦 Papel e Papelão</div>
-            <div class="material-card">🥤 Plástico</div>
-            <div class="material-card">🥫 Metal e Alumínio</div>
-            <div class="material-card">🍾 Vidro</div>
-        </div>
-        <p class="aviso">*Política de Rejeitos: Não coletamos lixo orgânico, resíduos hospitalares, tóxicos ou entulhos de construção.</p>
-    </div>
-
-    <div class="section">
-        <h2>Por que escolher a Resistência?</h2>
-        <ul>
-            <li>Coleta programada e pontual.</li>
-            <li>Limpeza e organização no momento da retirada.</li>
-            <li>Redução do impacto ambiental do seu negócio ou condomínio.</li>
-            <li>Atendimento rápido e suporte direto pelo WhatsApp.</li>
-        </ul>
-    </div>
-
-    <!-- Lembre-se de trocar o número do WhatsApp abaixo depois -->
-    <a href="https://wa.me/5541900000000?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20coleta%20de%20recicláveis." class="cta-button" target="_blank">
-        Fale conosco no WhatsApp
-    </a>
-</div>
-
-<footer>
-    <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
-</footer>
 
 </body>
 </html>
