@@ -10,8 +10,8 @@
         /* CONFIGURAÇÕES GERAIS - MODO PREMIUM */
         :root {
             --verde-primario: #008a4b; 
-            --verde-destaque: #00e676; /* Verde mais vibrante/neon para conversão */
-            --preto-chumbo: #0d0d0f; /* Fundo mais escuro e sofisticado */
+            --verde-destaque: #00e676;
+            --preto-chumbo: #0d0d0f;
             --cinza-escuro: #1a1a1e;
             --cinza-claro: #f8fafc;
             --texto-claro: #cbd5e1;
@@ -147,7 +147,6 @@
             letter-spacing: -2px;
         }
 
-        /* Efeito de Gradiente no Texto do Título */
         .hero h1 span {
             background: linear-gradient(90deg, #00e676, #00b0ff);
             -webkit-background-clip: text;
@@ -332,32 +331,56 @@
             color: var(--verde-destaque);
         }
 
-        /* PARCEIROS - LOGOS AUTOMÁTICAS E VETORIZADAS */
+        /* CARROSSEL DE PARCEIROS (ESTILO PRESERVE) */
         .parceiros {
             padding: 100px 5%;
             background-color: #fff;
             text-align: center;
+            overflow: hidden;
         }
 
-        .grid-parceiros {
+        /* Efeito de Fade nas laterais e Container do slider */
+        .logos-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 60px auto 0;
+            overflow: hidden;
+            /* Máscara que faz as logos sumirem nas pontas (estilo Preserve) */
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        /* A trilha que rola infinitamente */
+        .logos-track {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             align-items: center;
-            gap: 60px;
-            max-width: 1100px;
-            margin: 50px auto 0;
+            width: max-content;
+            gap: 80px; /* Espaço entre cada logo */
+            animation: rolarLogos 25s linear infinite; /* Animação suave e contínua */
         }
 
-        /* Efeito Mágico de Agência nas Logos */
+        /* Pausa a rolagem se o usuário passar o mouse */
+        .logos-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Animação que faz rolar pra esquerda */
+        @keyframes rolarLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
         .logo-parceiro {
+            height: 55px; /* Tamanho padronizado */
+            object-fit: contain;
             filter: grayscale(100%) opacity(0.4);
             transition: all 0.4s ease;
-            height: 50px; /* Altura padrão para equilibrar */
-            object-fit: contain;
             cursor: pointer;
+            flex-shrink: 0; /* Impede a logo de amassar */
         }
 
+        /* Quando passa o mouse, a logo ganha cor e destaque */
         .logo-parceiro:hover {
             filter: grayscale(0%) opacity(1);
             transform: scale(1.1);
@@ -383,15 +406,15 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .btn-header { display: none; }
-            .grid-parceiros { gap: 40px; }
+            .logos-track { gap: 50px; }
             .logo-parceiro { height: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BOTÃO WHATSAPP FLUTUANTE PICA -->
-    <a href="https://wa.me/5541999999999" target="_blank" class="whatsapp-float">
+    <!-- BOTÃO WHATSAPP FLUTUANTE PICA (Com seu número atualizado) -->
+    <a href="https://wa.me/5541998871864" target="_blank" class="whatsapp-float">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
@@ -400,7 +423,7 @@
     <!-- CABEÇALHO -->
     <header>
         <div class="logo">Resistência <span>Reciclagem</span></div>
-        <a href="https://wa.me/5541999999999" target="_blank" class="btn-header">Falar com Consultor</a>
+        <a href="https://wa.me/5541998871864" target="_blank" class="btn-header">Falar com Consultor</a>
     </header>
 
     <!-- HERO SECTION - FOCO EM COTAÇÃO -->
@@ -409,7 +432,7 @@
             <div class="hero-badge">Faça sua cotação</div>
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
             <p>Adequação ambiental e logística eficiente para indústrias, restaurantes e condomínios. Deixe a gestão de resíduos com quem entende.</p>
-            <a href="https://wa.me/5541999999999" target="_blank" class="btn-principal">Fazer Orçamento pelo WhatsApp</a>
+            <a href="https://wa.me/5541998871864" target="_blank" class="btn-principal">Fazer Orçamento pelo WhatsApp</a>
         </div>
     </section>
 
@@ -438,29 +461,29 @@
         </div>
     </section>
 
-    <!-- MATERIAIS COLETADOS - FOTOS REAIS E PESADAS -->
+    <!-- MATERIAIS COLETADOS -->
     <section id="materiais" class="materiais">
         <div class="section-header">
             <h2>O Que Coletamos</h2>
             <p>Processamos e destinamos corretamente grandes volumes do seu negócio.</p>
         </div>
         <div class="grid-materiais">
-            <!-- Fardo de Papelão (Muito papelão empilhado) -->
+            <!-- Fardo de Papelão -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1605600659908-0bef71b4c731?q=80&w=800&auto=format&fit=crop" alt="Papelão">
                 <div class="nome-material">Papel e Papelão</div>
             </div>
-            <!-- Metais (Latinhas amassadas/sucata) -->
+            <!-- Metais -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1536890992765-f42a1ee1e2a8?q=80&w=800&auto=format&fit=crop" alt="Metais">
                 <div class="nome-material">Metais</div>
             </div>
-            <!-- Vidros (Muitas garrafas de vidro juntas) -->
+            <!-- Vidros -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1579899321745-6677935de9da?q=80&w=800&auto=format&fit=crop" alt="Vidros">
                 <div class="nome-material">Vidros</div>
             </div>
-            <!-- Plásticos (Fardos/Garrafas) -->
+            <!-- Plásticos -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?q=80&w=800&auto=format&fit=crop" alt="Plásticos">
                 <div class="nome-material">Plásticos</div>
@@ -468,41 +491,59 @@
         </div>
     </section>
 
-    <!-- PARCEIROS - LOGOS EMBUTIDAS (VOCÊ NÃO PRECISA FAZER NADA AQUI) -->
+    <!-- PARCEIROS COM EFEITO CARROSSEL (IGUAL PRESERVE) -->
     <section id="parceiros" class="parceiros">
         <div class="section-header" style="margin-bottom: 20px;">
             <h2>Grandes Marcas Confiam na Gente</h2>
             <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
         </div>
         
-        <div class="grid-parceiros">
-            
-            <!-- Logo: Família Farinha (Desenhada em vetor - cor quente) -->
-            <svg class="logo-parceiro" viewBox="0 0 250 50" width="200" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#d35400" letter-spacing="-1">FAMÍLIA FARINHA</text>
-            </svg>
+        <div class="logos-slider">
+            <div class="logos-track">
+                
+                <!-- GRUPO 1 DE LOGOS -->
+                <svg class="logo-parceiro" viewBox="0 0 250 50" width="200" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#d35400" letter-spacing="-1">FAMÍLIA FARINHA</text>
+                </svg>
 
-            <!-- Logo: VIVO (Link direto Oficial) -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vivo_logo.svg" alt="Vivo" class="logo-parceiro">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vivo_logo.svg" alt="Vivo" class="logo-parceiro">
 
-            <!-- Logo: Ligga Telecom (Desenhada em vetor - magenta vibrante) -->
-            <svg class="logo-parceiro" viewBox="0 0 150 50" width="120" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-style="italic" font-size="34" fill="#e5007e" letter-spacing="-2">LIGGA</text>
-            </svg>
+                <svg class="logo-parceiro" viewBox="0 0 150 50" width="120" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-style="italic" font-size="34" fill="#e5007e" letter-spacing="-2">LIGGA</text>
+                </svg>
 
-            <!-- Logo: Drive In Burger (Desenhada em vetor - pegada forte) -->
-            <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#c0392b" letter-spacing="1">DRIVE IN BURGER</text>
-            </svg>
+                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#c0392b" letter-spacing="1">DRIVE IN BURGER</text>
+                </svg>
 
-            <!-- Logo: Paraná Clube (Link direto Oficial) -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paran%C3%A1_Clube_logo.svg" alt="Paraná Clube" class="logo-parceiro" style="height: 65px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paran%C3%A1_Clube_logo.svg" alt="Paraná Clube" class="logo-parceiro" style="height: 65px;">
 
-            <!-- Logo: Clube Graciosa (Desenhada em vetor - elegante) -->
-            <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="35" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#1e272e" letter-spacing="2">CLUBE GRACIOSA</text>
-            </svg>
+                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="35" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#1e272e" letter-spacing="2">CLUBE GRACIOSA</text>
+                </svg>
 
+                <!-- GRUPO 2 DE LOGOS (Duplicado para o efeito de rolagem infinita ficar perfeito) -->
+                <svg class="logo-parceiro" viewBox="0 0 250 50" width="200" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#d35400" letter-spacing="-1">FAMÍLIA FARINHA</text>
+                </svg>
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vivo_logo.svg" alt="Vivo" class="logo-parceiro">
+
+                <svg class="logo-parceiro" viewBox="0 0 150 50" width="120" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-style="italic" font-size="34" fill="#e5007e" letter-spacing="-2">LIGGA</text>
+                </svg>
+
+                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#c0392b" letter-spacing="1">DRIVE IN BURGER</text>
+                </svg>
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paran%C3%A1_Clube_logo.svg" alt="Paraná Clube" class="logo-parceiro" style="height: 65px;">
+
+                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="35" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#1e272e" letter-spacing="2">CLUBE GRACIOSA</text>
+                </svg>
+
+            </div>
         </div>
     </section>
 
