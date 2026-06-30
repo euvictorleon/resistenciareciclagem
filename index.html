@@ -3,385 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resistência Ambiental - Soluções Sustentáveis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Sua Empresa | Reciclagem e Sustentabilidade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Variáveis de Cores (Inspiradas nas referências) */
         :root {
-            /* Cores ajustadas para combinar com a logo */
-            --bg-color: #09090b; /* Fundo quase preto, combina com a logo */
-            --card-bg: #18181b;
-            --border-color: #27272a;
-            --text-main: #fafafa;
-            --text-muted: #a1a1aa;
-            --accent-green: #15803d; /* Verde escuro sofisticado inspirado na logo */
-            --accent-light: #22c55e;
+            --verde-topo: #20c997;
+            --verde-hero: #65a796; /* Verde água suave */
+            --verde-escuro: #1b8a6b;
+            --laranja: #f58220;
+            --branco: #ffffff;
+            --fundo-cinza: #f8f9fa;
+            --texto-escuro: #333333;
+            --texto-claro: #777777;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--branco);
+            color: var(--texto-escuro);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
+        /* --- CABEÇALHO --- */
+        .top-bar {
+            background-color: var(--verde-topo);
+            color: var(--branco);
+            padding: 8px 5%;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
         }
 
-        /* Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 15px 5%;
+            background: var(--branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .logo-img {
-            height: 60px; /* Altura da logo */
-            width: auto;
-            object-fit: contain;
-        }
-
-        .btn-header {
-            background-color: var(--accent-light);
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
+        .logo {
+            font-size: 24px;
             font-weight: 700;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); 
-        }
-
-        .btn-header:hover {
-            transform: scale(1.05);
-            background-color: #16a34a;
-            color: #fff;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 40px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            border: 1px solid var(--accent-green);
-            background-color: rgba(21, 128, 61, 0.1);
-            color: var(--accent-light);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 24px;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 18px;
-            margin-bottom: 40px;
-            max-width: 90%;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-        }
-
-        .btn-primary {
-            background-color: var(--text-main);
-            color: var(--bg-color);
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1px solid var(--border-color);
-            transition: border-color 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-        }
-
-        /* Cards de Materiais */
-        .section-title {
-            margin-top: 60px;
-            margin-bottom: 30px;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 24px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-green);
-        }
-
-        /* Imagem dentro do card */
-        .card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            background-color: #27272a; /* cor de fundo enquanto a foto não carrega */
-        }
-
-        .card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
+            color: var(--verde-escuro);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .card p {
-            color: var(--text-muted);
-            font-size: 15px;
+        .logo span {
+            color: var(--laranja);
         }
 
-        /* Portfólio Section */
-        .portfolio {
-            margin-top: 100px;
-            margin-bottom: 80px;
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
         }
 
-        .portfolio-header {
-            text-align: center;
-            margin-bottom: 50px;
+        nav a {
+            text-decoration: none;
+            color: var(--texto-claro);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s;
         }
 
-        .portfolio-header h2 {
-            font-size: 40px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
+        nav a:hover {
+            color: var(--verde-topo);
         }
 
-        .portfolio-header p {
-            color: var(--text-muted);
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto;
+        .btn-cotacao {
+            background-color: var(--verde-topo);
+            color: var(--branco);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: background 0.3s;
         }
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .btn-cotacao:hover {
+            background-color: var(--verde-escuro);
         }
 
-        .portfolio-item {
-            border-radius: 16px;
+        /* --- HERO SECTION (Área principal com fundo verde) --- */
+        .hero {
+            background-color: var(--verde-hero);
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             overflow: hidden;
             position: relative;
-            aspect-ratio: 4/3;
         }
 
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        .hero-text {
+            width: 45%;
+            color: var(--branco);
+            z-index: 2;
         }
 
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Logos Sociais */
-        .social-proof {
-            padding: 40px 0 80px 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .social-proof p {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            margin-bottom: 30px;
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
 
-        .logos-container {
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn-laranja {
+            background-color: var(--laranja);
+            color: var(--branco);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Os círculos com imagens estilo a referência */
+        .hero-images {
+            width: 50%;
+            position: relative;
+            height: 400px;
+        }
+
+        .circle-img {
+            position: absolute;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .img-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 10%;
+            z-index: 2;
+        }
+
+        .img-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 0;
+            left: 10%;
+            z-index: 1;
+        }
+
+        /* --- SERVIÇOS --- */
+        .servicos {
+            padding: 80px 5%;
+            background-color: var(--fundo-cinza);
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--verde-escuro);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            color: var(--texto-claro);
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card-servico {
+            background: var(--branco);
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card-servico:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-servico img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-servico h3 {
+            background-color: var(--verde-topo);
+            color: var(--branco);
+            padding: 15px;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- PRODUTOS --- */
+        .produtos {
+            padding: 100px 5% 80px 5%;
+            text-align: center;
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card-produto {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .card-produto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card-produto:hover img {
+            transform: scale(1.1);
+        }
+
+        .produto-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(32, 201, 151, 0.9), transparent);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-end;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 60px;
+            padding-bottom: 30px;
         }
 
-        .logos-container img {
-            height: 35px;
-            opacity: 0.4;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
+        .produto-overlay h3 {
+            color: var(--branco);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .logos-container img:hover {
-            opacity: 1;
-            filter: grayscale(0%);
+        .btn-conheca {
+            background-color: var(--verde-topo);
+            color: var(--branco);
+            border: none;
+            padding: 8px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
         }
 
-        /* Responsividade */
+        /* --- NÚMEROS (Faixa Laranja) --- */
+        .numeros {
+            background-color: var(--laranja);
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            color: var(--branco);
+        }
+
+        .stat h2 {
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Responsividade básica */
         @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 60px 0 20px 0;
-            }
-            .hero h1 {
-                font-size: 40px;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero { flex-direction: column; text-align: center; padding-top: 40px; }
+            .hero-text { width: 100%; margin-bottom: 40px; }
+            .hero-images { width: 100%; height: 300px; }
+            .img-1 { width: 200px; height: 200px; right: 0; }
+            .img-2 { width: 150px; height: 150px; left: 0; }
+            nav ul { display: none; } /* Esconde menu no mobile para simplificar */
+            .numeros { flex-wrap: wrap; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <a href="#">
-                <!-- SUBSTITUA AQUI PELO NOME DA IMAGEM DA LOGO -->
-                <img src="logo.png" alt="Resistência Ambiental" class="logo-img">
-            </a>
-            <a href="#" class="btn-header">Falar com consultor</a>
-        </header>
+    <!-- Faixa do Topo -->
+    <div class="top-bar">
+        <div>contato@suaempresa.com.br | (11) 9999-9999</div>
+        <div>Sustentabilidade em primeiro lugar</div>
+    </div>
 
-        <!-- Seção Principal -->
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-tag">🌱 Soluções sustentáveis, futuro possível.</div>
-                <h1>Transforme seu lixo em impacto positivo.</h1>
-                <p>Atendemos condomínios, empresas e residências garantindo a destinação correta dos seus materiais recicláveis com transparência, eficiência e estratégia.</p>
-                
-                <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Agendar coleta</a>
-                    <a href="#" class="btn-secondary">Nosso processo</a>
-                </div>
+    <!-- Menu Principal -->
+    <header>
+        <div class="logo">
+            <!-- Ícone de reciclagem em texto para simular logo -->
+            ♻️ SUA<span>EMPRESA</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Quem Somos</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-cotacao">FAÇA SUA COTAÇÃO</a>
+    </header>
+
+    <!-- Seção Principal (Hero) com as fotos redondas -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Equipamentos & Sustentabilidade</h1>
+            <p>Tecnologia de padrão internacional no processamento de resíduos e gestão ambiental corporativa.</p>
+            <a href="#" class="btn-laranja">SAIBA MAIS</a>
+        </div>
+        <div class="hero-images">
+            <!-- Usando imagens da internet (Unsplash) para não dar erro no seu GitHub! -->
+            <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Reciclagem" class="circle-img img-1">
+            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustentabilidade" class="circle-img img-2">
+        </div>
+    </section>
+
+    <!-- Nossos Serviços (Grade com quadradinhos verdes) -->
+    <section class="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">QUAIS SÃO OS SERVIÇOS DESENVOLVIDOS PELA NOSSA EMPRESA?</p>
+        
+        <div class="servicos-grid">
+            <div class="card-servico">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Transporte">
+                <h3>Transporte</h3>
             </div>
-
-            <!-- Cards de Materiais com Fotos -->
-            <div class="materiais">
-                <div class="features-grid">
-                    <div class="card">
-                        <!-- Foto do Papel -->
-                        <img src="foto-papel.jpg" alt="Papel e Papelão" class="card-img">
-                        <h3>Papel e Papelão</h3>
-                        <p>Coleta de caixas, jornais, revistas e embalagens limpas para retorno ao ciclo produtivo.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <!-- Foto do Plástico -->
-                        <img src="foto-plastico.jpg" alt="Plástico" class="card-img">
-                        <h3>Plástico</h3>
-                        <p>Destinação correta de garrafas PET, embalagens, potes e tampas plásticas.</p>
-                    </div>
-
-                    <div class="card">
-                        <!-- Foto do Metal -->
-                        <img src="foto-metal.jpg" alt="Metal e Alumínio" class="card-img">
-                        <h3>Metal e Alumínio</h3>
-                        <p>Reciclagem de latinhas, sucatas leves e conservas, gerando alto impacto de reaproveitamento.</p>
-                    </div>
-
-                    <div class="card">
-                        <!-- Foto do Vidro -->
-                        <img src="foto-vidro.jpg" alt="Vidro" class="card-img">
-                        <h3>Vidro</h3>
-                        <p>Garrafas e frascos inteiros ou quebrados (embalados corretamente para segurança).</p>
-                    </div>
-                </div>
+            <div class="card-servico">
+                <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Triagem">
+                <h3>Triagem</h3>
             </div>
-        </section>
+            <div class="card-servico">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Padronização">
+                <h3>Padronização</h3>
+            </div>
+            <div class="card-servico">
+                <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Expedição">
+                <h3>Expedição</h3>
+            </div>
+        </div>
+    </section>
 
-        <!-- NOVO: Seção de Portfólio -->
-        <section class="portfolio">
-            <div class="portfolio-header">
-                <h2>Nosso Impacto em Ação</h2>
-                <p>Acompanhe os bastidores do nosso trabalho diário pela sustentabilidade em Curitiba e RMC.</p>
+    <!-- Produtos (Imagens verticais com degrade verde igual sua 3ª foto) -->
+    <section class="produtos">
+        <h2 class="section-title">Produtos</h2>
+        
+        <div class="produtos-grid">
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Plásticos">
+                <div class="produto-overlay">
+                    <h3>Plásticos</h3>
+                    <button class="btn-conheca">CONHEÇA +</button>
+                </div>
             </div>
             
-            <div class="portfolio-grid">
-                <!-- Fotos do Portfólio (Caminhões, galpão, equipe, etc) -->
-                <div class="portfolio-item">
-                    <img src="portfolio-1.jpg" alt="Trabalho em ação">
-                </div>
-                <div class="portfolio-item">
-                    <img src="portfolio-2.jpg" alt="Nossa estrutura">
-                </div>
-                <div class="portfolio-item">
-                    <img src="portfolio-3.jpg" alt="Materiais recolhidos">
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1582215286423-74d7dfebc747?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Papéis">
+                <div class="produto-overlay">
+                    <h3>Papéis</h3>
+                    <button class="btn-conheca">CONHEÇA +</button>
                 </div>
             </div>
-        </section>
-
-        <!-- SEÇÃO DE LOGOS (SOCIAL PROOF) -->
-        <section class="social-proof">
-            <p>Empresas que confiam na nossa gestão ambiental</p>
-            <div class="logos-container">
-                <img src="https://via.placeholder.com/150x40/18181b/fafafa?text=Logo+Cliente+1" alt="Cliente 1">
-                <img src="https://via.placeholder.com/130x40/18181b/fafafa?text=Logo+Cliente+2" alt="Cliente 2">
-                <img src="https://via.placeholder.com/140x40/18181b/fafafa?text=Logo+Cliente+3" alt="Cliente 3">
-                <img src="https://via.placeholder.com/160x40/18181b/fafafa?text=Logo+Cliente+4" alt="Cliente 4">
+            
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1599388839088-7e28b86e09dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Metais">
+                <div class="produto-overlay">
+                    <h3>Metais</h3>
+                    <button class="btn-conheca">CONHEÇA +</button>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </div>
+    <!-- Números (Faixa Laranja igual sua 4ª foto) -->
+    <section class="numeros">
+        <div class="stat">
+            <h2>+15</h2>
+            <p>Anos de<br>experiência</p>
+        </div>
+        <div class="stat">
+            <h2>100%</h2>
+            <p>Qualidade<br>Garantida</p>
+        </div>
+        <div class="stat">
+            <h2>20k</h2>
+            <p>Toneladas<br>Recicladas</p>
+        </div>
+        <div class="stat">
+            <h2>200</h2>
+            <p>Clientes<br>Atendidos</p>
+        </div>
+    </section>
 
 </body>
 </html>
