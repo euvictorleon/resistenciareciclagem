@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resistência Reciclagem | Coleta Comercial</title>
-    <!-- Fonte moderna e agressiva do Google -->
+    <title>Resistência Reciclagem | Soluções Empresariais</title>
+    <!-- Fonte Premium do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        /* CONFIGURAÇÕES GERAIS */
+        /* CONFIGURAÇÕES GERAIS - MODO PREMIUM */
         :root {
-            --verde-primario: #008a4b; /* Verde forte, de confiança */
-            --verde-destaque: #00c853; /* Verde botão do WhatsApp */
-            --preto-chumbo: #121214;
-            --cinza-escuro: #202024;
-            --cinza-claro: #f3f4f6;
-            --texto-claro: #e1e1e6;
+            --verde-primario: #008a4b; 
+            --verde-destaque: #00e676; /* Verde mais vibrante/neon para conversão */
+            --preto-chumbo: #0d0d0f; /* Fundo mais escuro e sofisticado */
+            --cinza-escuro: #1a1a1e;
+            --cinza-claro: #f8fafc;
+            --texto-claro: #cbd5e1;
+            --sombra-premium: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         * {
@@ -31,19 +32,18 @@
             overflow-x: hidden;
         }
 
-        /* BOTÃO WHATSAPP FLUTUANTE (O SEGREDO DA CONVERSÃO) */
+        /* BOTÃO WHATSAPP PULSANTE */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--verde-destaque);
+            width: 65px;
+            height: 65px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
             color: #FFF;
             border-radius: 50px;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            font-size: 35px;
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -54,19 +54,19 @@
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(-5deg);
         }
 
         @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 200, 83, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* HEADER INVISÍVEL ATÉ ROLAR */
+        /* HEADER GLASSMORPHISM (Efeito Vidro) */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
@@ -75,15 +75,15 @@
             width: 100%;
             top: 0;
             z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
             color: var(--preto-chumbo);
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
         }
 
         .logo span {
@@ -91,186 +91,225 @@
         }
 
         .btn-header {
-            background-color: var(--verde-primario);
+            background-color: var(--preto-chumbo);
             color: white;
-            padding: 10px 24px;
-            border-radius: 6px;
+            padding: 12px 28px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             transition: 0.3s;
+            border: 2px solid var(--preto-chumbo);
         }
         
         .btn-header:hover {
-            background-color: var(--preto-chumbo);
+            background-color: transparent;
+            color: var(--preto-chumbo);
         }
 
-        /* HERO SECTION (A DOBRA PRINCIPAL) */
+        /* HERO SECTION - DARK & BOLD */
         .hero {
-            background: linear-gradient(135deg, rgba(18,18,20,0.9) 0%, rgba(18,18,20,0.7) 100%), url('https://images.unsplash.com/photo-1604187351574-c75ca79f5807?q=80&w=2070&auto=format&fit=crop') center/cover;
+            background: linear-gradient(to right, rgba(13,13,15,0.95) 20%, rgba(13,13,15,0.7) 100%), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop') center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 0 5%;
-            padding-top: 80px; /* Compensa o header fixo */
+            padding-top: 80px;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 750px;
         }
 
         .hero-badge {
-            background-color: rgba(0, 138, 75, 0.2);
-            border: 1px solid var(--verde-primario);
-            color: #00ff88;
-            padding: 8px 16px;
+            background-color: rgba(0, 230, 118, 0.15);
+            border: 1px solid var(--verde-destaque);
+            color: var(--verde-destaque);
+            padding: 10px 20px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 1px;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
             color: #ffffff;
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            line-height: 1.05;
+            margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: -2px;
         }
 
+        /* Efeito de Gradiente no Texto do Título */
         .hero h1 span {
-            color: var(--verde-destaque);
+            background: linear-gradient(90deg, #00e676, #00b0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             color: var(--texto-claro);
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            font-size: 1.25rem;
+            margin-bottom: 45px;
+            line-height: 1.7;
             font-weight: 400;
-        }
-
-        .hero-botoes {
-            display: flex;
-            gap: 20px;
+            max-width: 600px;
         }
 
         .btn-principal {
-            background-color: var(--verde-destaque);
+            background: linear-gradient(90deg, var(--verde-primario), var(--verde-destaque));
             color: var(--preto-chumbo);
-            padding: 20px 45px;
-            font-size: 1.2rem;
-            font-weight: 800;
+            padding: 22px 50px;
+            font-size: 1.1rem;
+            font-weight: 900;
             text-decoration: none;
             border-radius: 8px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-block;
+            box-shadow: 0 10px 30px rgba(0, 230, 118, 0.3);
         }
 
         .btn-principal:hover {
-            background-color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,200,83,0.4);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 230, 118, 0.5);
+            color: #fff;
         }
 
-        /* BENEFÍCIOS (DORES DO CLIENTE) */
-        .beneficios {
-            background-color: var(--preto-chumbo);
-            padding: 80px 5%;
-            color: white;
-            position: relative;
-        }
-
-        .grid-beneficios {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card-beneficio {
-            background-color: var(--cinza-escuro);
-            padding: 40px 30px;
-            border-radius: 12px;
-            border-left: 4px solid var(--verde-primario);
-            transition: 0.3s;
-        }
-
-        .card-beneficio:hover {
-            transform: translateY(-10px);
-            border-left-color: var(--verde-destaque);
-        }
-
-        .card-beneficio h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-            color: var(--verde-destaque);
-        }
-
-        .card-beneficio p {
-            color: var(--texto-claro);
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        /* MATERIAIS - GALERIA PREMIUM */
-        .materiais {
-            padding: 100px 5%;
-            background-color: #ffffff;
+        /* COMO FUNCIONA (O FUNIL DE VENDAS 1-2-3) */
+        .passo-a-passo {
+            background-color: var(--cinza-claro);
+            padding: 120px 5%;
+            text-align: center;
         }
 
         .section-header {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 60px;
+            margin: 0 auto 70px;
         }
 
         .section-header h2 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 900;
             color: var(--preto-chumbo);
             margin-bottom: 15px;
             text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
         .section-header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #64748b;
+            font-weight: 600;
+        }
+
+        .grid-passos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .passo {
+            background: #fff;
+            padding: 60px 40px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            position: relative;
+            transition: all 0.4s ease;
+            border-top: 5px solid #fff;
+        }
+
+        .passo:hover {
+            transform: translateY(-15px);
+            border-top: 5px solid var(--verde-primario);
+            box-shadow: var(--sombra-premium);
+        }
+
+        .numero-passo {
+            background: linear-gradient(135deg, var(--verde-primario), var(--verde-destaque));
+            color: #fff;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 10px 20px rgba(0,230,118,0.4);
+            border: 6px solid var(--cinza-claro);
+        }
+
+        .passo h3 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--preto-chumbo);
+            text-transform: uppercase;
+        }
+
+        .passo p {
+            color: #475569;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        /* MATERIAIS - GALERIA REALISTA E AGRESSIVA */
+        .materiais {
+            padding: 100px 5%;
+            background-color: var(--preto-chumbo);
+            color: #fff;
+        }
+
+        .materiais .section-header h2 {
+            color: #fff;
+        }
+
+        .materiais .section-header p {
+            color: var(--texto-claro);
         }
 
         .grid-materiais {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .card-material {
             position: relative;
-            height: 400px;
-            border-radius: 12px;
+            height: 450px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            cursor: crosshair;
         }
 
         .card-material img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
         .card-material:hover img {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         .nome-material {
@@ -278,245 +317,200 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 40px 20px 20px;
-            background: linear-gradient(to top, rgba(18,18,20,0.95), transparent);
+            padding: 60px 30px 30px;
+            background: linear-gradient(to top, rgba(13,13,15,1) 0%, rgba(13,13,15,0) 100%);
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: -1px;
+            transition: 0.3s;
         }
 
-        /* PASSO A PASSO (COMO FUNCIONA) */
-        .passo-a-passo {
-            background-color: var(--cinza-claro);
-            padding: 100px 5%;
-            text-align: center;
+        .card-material:hover .nome-material {
+            padding-bottom: 40px;
+            color: var(--verde-destaque);
         }
 
-        .grid-passos {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-
-        .passo {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            flex: 1;
-            min-width: 250px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            position: relative;
-        }
-
-        .numero-passo {
-            background-color: var(--verde-primario);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin: 0 auto 20px;
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 4px 10px rgba(0,138,75,0.4);
-        }
-
-        .passo h3 {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        /* PARCEIROS - ESTILO "TRUST SIGNS" */
+        /* PARCEIROS - LOGOS AUTOMÁTICAS E VETORIZADAS */
         .parceiros {
-            padding: 80px 5%;
-            background-color: #ffffff;
+            padding: 100px 5%;
+            background-color: #fff;
             text-align: center;
-            border-top: 1px solid #e2e8f0;
         }
 
         .grid-parceiros {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            max-width: 1000px;
-            margin: 40px auto 0;
             align-items: center;
-            opacity: 0.7; /* Dá um tom mais elegante */
-            filter: grayscale(100%); /* Deixa tudo preto e branco, estilo premium */
-            transition: 0.3s;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 50px auto 0;
         }
 
-        .grid-parceiros:hover {
-            opacity: 1;
-            filter: grayscale(0%);
+        /* Efeito Mágico de Agência nas Logos */
+        .logo-parceiro {
+            filter: grayscale(100%) opacity(0.4);
+            transition: all 0.4s ease;
+            height: 50px; /* Altura padrão para equilibrar */
+            object-fit: contain;
+            cursor: pointer;
         }
 
-        .logo-parceiro-placeholder {
-            padding: 15px 30px;
-            font-weight: 900;
-            font-size: 1.3rem;
-            color: #64748b;
+        .logo-parceiro:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
         }
 
-        /* FOOTER DA LP */
+        /* FOOTER */
         footer {
-            background-color: var(--preto-chumbo);
-            color: #94a3b8;
+            background-color: #000;
+            color: #64748b;
             text-align: center;
-            padding: 40px 5%;
-            font-size: 0.9rem;
+            padding: 60px 5%;
+        }
+
+        footer h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
         }
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero-botoes { flex-direction: column; }
-            .btn-principal { text-align: center; }
-            .btn-header { display: none; } /* Some o botão do topo no celular para ficar mais limpo */
+            .hero h1 { font-size: 3rem; }
+            .btn-header { display: none; }
+            .grid-parceiros { gap: 40px; }
+            .logo-parceiro { height: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <!-- BOTÃO WHATSAPP FLUTUANTE PICA -->
     <a href="https://wa.me/5541999999999" target="_blank" class="whatsapp-float">
-        <!-- Ícone SVG do WhatsApp (nativo, não precisa baixar imagem) -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
 
-    <!-- CABEÇALHO (AGORA FIXO E MODERNO) -->
+    <!-- CABEÇALHO -->
     <header>
         <div class="logo">Resistência <span>Reciclagem</span></div>
-        <a href="#contato" class="btn-header">Solicitar Coleta</a>
+        <a href="https://wa.me/5541999999999" target="_blank" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO (A DOBRA PRINCIPAL - FOCADA EM CONVERSÃO) -->
+    <!-- HERO SECTION - FOCO EM COTAÇÃO -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Avaliamos seu resíduo gratuitamente</div>
-            <h1>A Solução de <span>Coleta de Resíduos</span> para o seu Negócio</h1>
-            <p>Adequação ambiental, certificado de destinação correta e logística eficiente para restaurantes, panificadoras e condomínios. Sem dor de cabeça, sem multas.</p>
-            <div class="hero-botoes">
-                <a href="https://wa.me/5541999999999" target="_blank" class="btn-principal">Agendar Coleta pelo WhatsApp</a>
-            </div>
+            <div class="hero-badge">Faça sua cotação</div>
+            <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
+            <p>Adequação ambiental e logística eficiente para indústrias, restaurantes e condomínios. Deixe a gestão de resíduos com quem entende.</p>
+            <a href="https://wa.me/5541999999999" target="_blank" class="btn-principal">Fazer Orçamento pelo WhatsApp</a>
         </div>
     </section>
 
-    <!-- POR QUE ESCOLHER A RESISTÊNCIA? (GATILHOS E DORES) -->
-    <section class="beneficios">
-        <div class="section-header">
-            <h2 style="color: white;">Por que a Resistência?</h2>
-            <p style="color: #94a3b8;">Resolvemos os maiores problemas de descarte do seu negócio.</p>
-        </div>
-        <div class="grid-beneficios">
-            <div class="card-beneficio">
-                <h3>Normas e Certificados</h3>
-                <p>Garantimos a adequação do seu estabelecimento às leis ambientais, emitindo certificado de destinação final. Evite multas da prefeitura e fiscalizações.</p>
-            </div>
-            <div class="card-beneficio">
-                <h3>Logística Eficiente</h3>
-                <p>Nossa equipe faz a coleta com pontualidade. Não deixe lixo acumulando, gerando mau cheiro e ocupando espaço nobre da sua operação.</p>
-            </div>
-            <div class="card-beneficio">
-                <h3>Atendimento Especializado</h3>
-                <p>Profissionais uniformizados, frota adequada e atendimento focado na necessidade específica do seu galpão, restaurante ou condomínio.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMO FUNCIONA (PASSO A PASSO) -->
+    <!-- COMO FUNCIONA - FUNIL DE VENDAS (1, 2, 3) -->
     <section class="passo-a-passo">
         <div class="section-header">
             <h2>Como Funciona?</h2>
-            <p>Seu descarte resolvido em 3 passos simples.</p>
+            <p>Um processo direto, sem burocracia e focado na sua necessidade.</p>
         </div>
         <div class="grid-passos">
             <div class="passo">
                 <div class="numero-passo">1</div>
-                <h3>Agendamento</h3>
-                <p>Você entra em contato conosco pelo WhatsApp e agenda a avaliação e coleta dos seus resíduos.</p>
+                <h3>Contato Inicial</h3>
+                <p>Você entra em contato com nosso time pelo WhatsApp e explica o tipo e a quantidade de material que seu negócio gera.</p>
             </div>
             <div class="passo">
                 <div class="numero-passo">2</div>
-                <h3>Coleta Segura</h3>
-                <p>Nossa equipe vai até o seu negócio e realiza a retirada do material com total higiene e segurança.</p>
+                <h3>Análise do Plano</h3>
+                <p>Avaliamos sua demanda e definimos juntos o melhor plano, frequência de coleta e orçamento ideal para sua operação.</p>
             </div>
             <div class="passo">
                 <div class="numero-passo">3</div>
-                <h3>Certificação</h3>
-                <p>Você recebe a documentação comprovando a destinação correta, ficando em dia com a legislação.</p>
+                <h3>Coleta & Certificação</h3>
+                <p>Nossa equipe realiza a retirada pontual e emitimos toda a documentação legal comprovando a destinação correta.</p>
             </div>
         </div>
     </section>
 
-    <!-- MATERIAIS COLETADOS (AGORA MAIS IMPONENTE) -->
+    <!-- MATERIAIS COLETADOS - FOTOS REAIS E PESADAS -->
     <section id="materiais" class="materiais">
         <div class="section-header">
             <h2>O Que Coletamos</h2>
-            <p>Estrutura completa para processar diversos tipos de materiais do seu negócio.</p>
+            <p>Processamos e destinamos corretamente grandes volumes do seu negócio.</p>
         </div>
         <div class="grid-materiais">
-            <!-- Fardo de Plástico -->
+            <!-- Fardo de Papelão (Muito papelão empilhado) -->
+            <div class="card-material">
+                <img src="https://images.unsplash.com/photo-1605600659908-0bef71b4c731?q=80&w=800&auto=format&fit=crop" alt="Papelão">
+                <div class="nome-material">Papel e Papelão</div>
+            </div>
+            <!-- Metais (Latinhas amassadas/sucata) -->
+            <div class="card-material">
+                <img src="https://images.unsplash.com/photo-1536890992765-f42a1ee1e2a8?q=80&w=800&auto=format&fit=crop" alt="Metais">
+                <div class="nome-material">Metais</div>
+            </div>
+            <!-- Vidros (Muitas garrafas de vidro juntas) -->
+            <div class="card-material">
+                <img src="https://images.unsplash.com/photo-1579899321745-6677935de9da?q=80&w=800&auto=format&fit=crop" alt="Vidros">
+                <div class="nome-material">Vidros</div>
+            </div>
+            <!-- Plásticos (Fardos/Garrafas) -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?q=80&w=800&auto=format&fit=crop" alt="Plásticos">
                 <div class="nome-material">Plásticos</div>
             </div>
-            <!-- Fardo de Papelão -->
-            <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop" alt="Papel e Papelão">
-                <div class="nome-material">Papel e Papelão</div>
-            </div>
-            <!-- Sucata de Metal -->
-            <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=800&auto=format&fit=crop" alt="Metais">
-                <div class="nome-material">Metais</div>
-            </div>
-            <!-- Vidros Separados -->
-            <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=800&auto=format&fit=crop" alt="Vidros">
-                <div class="nome-material">Vidros</div>
-            </div>
         </div>
     </section>
 
-    <!-- PROVA SOCIAL / PARCEIROS -->
+    <!-- PARCEIROS - LOGOS EMBUTIDAS (VOCÊ NÃO PRECISA FAZER NADA AQUI) -->
     <section id="parceiros" class="parceiros">
         <div class="section-header" style="margin-bottom: 20px;">
             <h2>Grandes Marcas Confiam na Gente</h2>
+            <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
         </div>
         
         <div class="grid-parceiros">
-            <!-- LEMBRETE: Trocar por tags <img> quando tiver os arquivos, igual expliquei antes! -->
-            <div class="logo-parceiro-placeholder">FAMÍLIA FARINHA</div>
-            <div class="logo-parceiro-placeholder">VIVO</div>
-            <div class="logo-parceiro-placeholder">LIGGA</div>
-            <div class="logo-parceiro-placeholder">DRIVE IN BURGER</div>
-            <div class="logo-parceiro-placeholder">PARANÁ CLUBE</div>
-            <div class="logo-parceiro-placeholder">CLUBE GRACIOSA</div>
+            
+            <!-- Logo: Família Farinha (Desenhada em vetor - cor quente) -->
+            <svg class="logo-parceiro" viewBox="0 0 250 50" width="200" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#d35400" letter-spacing="-1">FAMÍLIA FARINHA</text>
+            </svg>
+
+            <!-- Logo: VIVO (Link direto Oficial) -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vivo_logo.svg" alt="Vivo" class="logo-parceiro">
+
+            <!-- Logo: Ligga Telecom (Desenhada em vetor - magenta vibrante) -->
+            <svg class="logo-parceiro" viewBox="0 0 150 50" width="120" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-style="italic" font-size="34" fill="#e5007e" letter-spacing="-2">LIGGA</text>
+            </svg>
+
+            <!-- Logo: Drive In Burger (Desenhada em vetor - pegada forte) -->
+            <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#c0392b" letter-spacing="1">DRIVE IN BURGER</text>
+            </svg>
+
+            <!-- Logo: Paraná Clube (Link direto Oficial) -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paran%C3%A1_Clube_logo.svg" alt="Paraná Clube" class="logo-parceiro" style="height: 65px;">
+
+            <!-- Logo: Clube Graciosa (Desenhada em vetor - elegante) -->
+            <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="35" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#1e272e" letter-spacing="2">CLUBE GRACIOSA</text>
+            </svg>
+
         </div>
     </section>
 
     <!-- RODAPÉ -->
     <footer>
-        <h2 style="color: white; margin-bottom: 15px;">Resistência Reciclagem</h2>
+        <h2>Resistência Reciclagem</h2>
         <p>A solução definitiva e consciente para os resíduos da sua empresa.</p>
-        <p style="margin-top: 20px;">&copy; 2024 Resistência Reciclagem. Curitiba/PR.</p>
+        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.5;">&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
     </footer>
 
 </body>
