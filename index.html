@@ -65,9 +65,9 @@
 
         /* HEADER GLASSMORPHISM (Efeito Vidro) */
         header {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,18 +76,19 @@
             top: 0;
             z-index: 999;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
-        .logo {
-            font-size: 26px;
-            font-weight: 900;
-            color: var(--preto-chumbo);
-            text-transform: uppercase;
-            letter-spacing: -1.5px;
+        /* NOVA CONFIGURAÇÃO DA LOGO DA RESISTÊNCIA */
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--verde-primario);
+        .logo-img {
+            height: 55px; /* Tamanho chique para a logo no topo */
+            width: auto;
+            object-fit: contain;
         }
 
         .btn-header {
@@ -331,7 +332,113 @@
             color: var(--verde-destaque);
         }
 
-        /* CARROSSEL DE PARCEIROS (ESTILO PRESERVE) */
+        /* NOVO: MAPA DE ATUAÇÃO TECNOLÓGICO (CURITIBA E REGIÃO) */
+        .mapa-atuacao {
+            padding: 100px 5%;
+            background-color: #050505; /* Fundo extremamente escuro */
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mapa-atuacao .section-header p {
+            color: var(--verde-destaque);
+        }
+
+        .mapa-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 550px;
+            margin: 0 auto;
+            background: radial-gradient(circle at center, rgba(0, 230, 118, 0.08) 0%, transparent 60%);
+            border: 1px solid rgba(0, 230, 118, 0.15);
+            border-radius: 24px;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
+
+        /* O contorno geográfico desenhado via código */
+        .svg-contorno {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 85%;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        /* Container que vai segurar as luzes geradas pelo JavaScript */
+        #luzes-mapa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .ponto-luz {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: var(--verde-destaque);
+            border-radius: 50%;
+            box-shadow: 0 0 12px 3px rgba(0, 230, 118, 0.8);
+            animation: piscarLuz 2.5s infinite alternate;
+        }
+
+        .ponto-secundario {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px 1px rgba(0, 230, 118, 0.4);
+            background-color: rgba(0, 230, 118, 0.6);
+            animation: piscarLuzSecundaria 4s infinite alternate;
+        }
+
+        @keyframes piscarLuz {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.4); }
+        }
+
+        @keyframes piscarLuzSecundaria {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.7; }
+        }
+
+        .map-overlay-text {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            text-align: left;
+            z-index: 3;
+        }
+        .map-overlay-text h4 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .map-overlay-text p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--verde-destaque);
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 10px var(--verde-destaque);
+        }
+
+        /* CARROSSEL DE PARCEIROS COM AS SUAS LOGOS REAIS */
         .parceiros {
             padding: 100px 5%;
             background-color: #fff;
@@ -339,48 +446,42 @@
             overflow: hidden;
         }
 
-        /* Efeito de Fade nas laterais e Container do slider */
         .logos-slider {
             position: relative;
             width: 100%;
             max-width: 1200px;
             margin: 60px auto 0;
             overflow: hidden;
-            /* Máscara que faz as logos sumirem nas pontas (estilo Preserve) */
             -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
             mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
 
-        /* A trilha que rola infinitamente */
         .logos-track {
             display: flex;
             align-items: center;
             width: max-content;
-            gap: 80px; /* Espaço entre cada logo */
-            animation: rolarLogos 25s linear infinite; /* Animação suave e contínua */
+            gap: 80px; 
+            animation: rolarLogos 25s linear infinite;
         }
 
-        /* Pausa a rolagem se o usuário passar o mouse */
         .logos-track:hover {
             animation-play-state: paused;
         }
 
-        /* Animação que faz rolar pra esquerda */
         @keyframes rolarLogos {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); } 
         }
 
         .logo-parceiro {
-            height: 55px; /* Tamanho padronizado */
+            height: 60px; /* Tamanho ajustado para caber marcas reais perfeitamente */
             object-fit: contain;
-            filter: grayscale(100%) opacity(0.4);
+            filter: grayscale(100%) opacity(0.6);
             transition: all 0.4s ease;
             cursor: pointer;
-            flex-shrink: 0; /* Impede a logo de amassar */
+            flex-shrink: 0;
         }
 
-        /* Quando passa o mouse, a logo ganha cor e destaque */
         .logo-parceiro:hover {
             filter: grayscale(0%) opacity(1);
             transform: scale(1.1);
@@ -407,26 +508,30 @@
             .hero h1 { font-size: 3rem; }
             .btn-header { display: none; }
             .logos-track { gap: 50px; }
-            .logo-parceiro { height: 40px; }
+            .logo-parceiro { height: 45px; }
+            .mapa-container { height: 350px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BOTÃO WHATSAPP FLUTUANTE PICA (Com seu número atualizado) -->
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
     <a href="https://wa.me/5541998871864" target="_blank" class="whatsapp-float">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
 
-    <!-- CABEÇALHO -->
+    <!-- CABEÇALHO ATUALIZADO (PUXANDO A LOGO EM IMAGEM) -->
     <header>
-        <div class="logo">Resistência <span>Reciclagem</span></div>
+        <div class="logo-container">
+            <!-- Basta ter o arquivo 'logo-resistencia.png' na mesma pasta do seu site -->
+            <img src="logo-resistencia.png" alt="Resistência Reciclagem" class="logo-img">
+        </div>
         <a href="https://wa.me/5541998871864" target="_blank" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO SECTION - FOCO EM COTAÇÃO -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">Faça sua cotação</div>
@@ -436,7 +541,7 @@
         </div>
     </section>
 
-    <!-- COMO FUNCIONA - FUNIL DE VENDAS (1, 2, 3) -->
+    <!-- COMO FUNCIONA -->
     <section class="passo-a-passo">
         <div class="section-header">
             <h2>Como Funciona?</h2>
@@ -468,22 +573,18 @@
             <p>Processamos e destinamos corretamente grandes volumes do seu negócio.</p>
         </div>
         <div class="grid-materiais">
-            <!-- Fardo de Papelão -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1605600659908-0bef71b4c731?q=80&w=800&auto=format&fit=crop" alt="Papelão">
                 <div class="nome-material">Papel e Papelão</div>
             </div>
-            <!-- Metais -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1536890992765-f42a1ee1e2a8?q=80&w=800&auto=format&fit=crop" alt="Metais">
                 <div class="nome-material">Metais</div>
             </div>
-            <!-- Vidros -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1579899321745-6677935de9da?q=80&w=800&auto=format&fit=crop" alt="Vidros">
                 <div class="nome-material">Vidros</div>
             </div>
-            <!-- Plásticos -->
             <div class="card-material">
                 <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?q=80&w=800&auto=format&fit=crop" alt="Plásticos">
                 <div class="nome-material">Plásticos</div>
@@ -491,7 +592,30 @@
         </div>
     </section>
 
-    <!-- PARCEIROS COM EFEITO CARROSSEL (IGUAL PRESERVE) -->
+    <!-- NOVA SEÇÃO: MAPA DE ATUAÇÃO TECNOLÓGICO -->
+    <section class="mapa-atuacao">
+        <div class="section-header">
+            <h2>Nossa Logística</h2>
+            <p>Atendendo Curitiba e Região Metropolitana com agilidade e inteligência de rotas.</p>
+        </div>
+        <div class="mapa-container">
+            <!-- Contorno Abstrato Lembra a região de Curitiba -->
+            <svg class="svg-contorno" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M45,5 L85,25 L95,65 L60,95 L15,85 L5,40 Z" fill="none" stroke="#00e676" stroke-width="0.3" stroke-dasharray="2, 2"/>
+                <path d="M50,15 L75,30 L80,60 L55,80 L25,70 L20,35 Z" fill="none" stroke="#00e676" stroke-width="0.1"/>
+            </svg>
+            
+            <!-- Pontos Gerados Pelo JavaScript no final do arquivo -->
+            <div id="luzes-mapa"></div>
+
+            <div class="map-overlay-text">
+                <h4><span class="status-dot"></span>+200 Pontos</h4>
+                <p>Coletas Ativas Diárias</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARROSSEL DE PARCEIROS (COM AS LOGOS REAIS) -->
     <section id="parceiros" class="parceiros">
         <div class="section-header" style="margin-bottom: 20px;">
             <h2>Grandes Marcas Confiam na Gente</h2>
@@ -501,47 +625,24 @@
         <div class="logos-slider">
             <div class="logos-track">
                 
-                <!-- GRUPO 1 DE LOGOS -->
-                <svg class="logo-parceiro" viewBox="0 0 250 50" width="200" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#d35400" letter-spacing="-1">FAMÍLIA FARINHA</text>
-                </svg>
+                <!-- GRUPO 1 DE LOGOS REAIS (Baseados no seu print) -->
+                <!-- Lembre-se de subir essas imagens no seu GitHub com esses nomes exatos -->
+                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
+                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
+                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
+                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
+                <img src="drive-in-burger.png" alt="Drive in Burger" class="logo-parceiro">
+                <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
+                <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vivo_logo.svg" alt="Vivo" class="logo-parceiro">
-
-                <svg class="logo-parceiro" viewBox="0 0 150 50" width="120" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-style="italic" font-size="34" fill="#e5007e" letter-spacing="-2">LIGGA</text>
-                </svg>
-
-                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#c0392b" letter-spacing="1">DRIVE IN BURGER</text>
-                </svg>
-
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paran%C3%A1_Clube_logo.svg" alt="Paraná Clube" class="logo-parceiro" style="height: 65px;">
-
-                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="35" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#1e272e" letter-spacing="2">CLUBE GRACIOSA</text>
-                </svg>
-
-                <!-- GRUPO 2 DE LOGOS (Duplicado para o efeito de rolagem infinita ficar perfeito) -->
-                <svg class="logo-parceiro" viewBox="0 0 250 50" width="200" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#d35400" letter-spacing="-1">FAMÍLIA FARINHA</text>
-                </svg>
-
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vivo_logo.svg" alt="Vivo" class="logo-parceiro">
-
-                <svg class="logo-parceiro" viewBox="0 0 150 50" width="120" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-style="italic" font-size="34" fill="#e5007e" letter-spacing="-2">LIGGA</text>
-                </svg>
-
-                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="38" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#c0392b" letter-spacing="1">DRIVE IN BURGER</text>
-                </svg>
-
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paran%C3%A1_Clube_logo.svg" alt="Paraná Clube" class="logo-parceiro" style="height: 65px;">
-
-                <svg class="logo-parceiro" viewBox="0 0 260 50" width="220" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="35" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#1e272e" letter-spacing="2">CLUBE GRACIOSA</text>
-                </svg>
+                <!-- GRUPO 2 DE LOGOS REAIS (Duplicado para o efeito infinito funcionar sem quebras) -->
+                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
+                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
+                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
+                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
+                <img src="drive-in-burger.png" alt="Drive in Burger" class="logo-parceiro">
+                <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
+                <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
 
             </div>
         </div>
@@ -554,5 +655,50 @@
         <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.5;">&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- SCRIPT QUE GERA OS PONTOS LUMINOSOS DO MAPA -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const containerMapa = document.getElementById("luzes-mapa");
+            
+            // Quantidade de pontos no centro de Curitiba
+            const qtdCentro = 150; 
+            // Quantidade de pontos espalhados na Região Metropolitana
+            const qtdRM = 50; 
+
+            // Função para concentrar os pontos no miolo (simulando bairros centrais)
+            function concentrarNoCentro(min, max) {
+                let u = 0, v = 0;
+                while(u === 0) u = Math.random();
+                while(v === 0) v = Math.random();
+                let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+                num = num / 10.0 + 0.5; 
+                if (num > 1 || num < 0) return concentrarNoCentro(min, max); 
+                return num * (max - min) + min;
+            }
+
+            // Gerando a concentração alta de clientes no Centro
+            for (let i = 0; i < qtdCentro; i++) {
+                let ponto = document.createElement("div");
+                ponto.className = "ponto-luz";
+                // Concentra na área central (35% a 65% do container)
+                ponto.style.top = concentrarNoCentro(35, 65) + "%";
+                ponto.style.left = concentrarNoCentro(35, 65) + "%";
+                // Adiciona um delay aleatório para eles não piscarem todos juntos
+                ponto.style.animationDelay = (Math.random() * 2) + "s";
+                containerMapa.appendChild(ponto);
+            }
+
+            // Gerando as rotas da Região Metropolitana (Pontos mais afastados e fracos)
+            for (let i = 0; i < qtdRM; i++) {
+                let ponto = document.createElement("div");
+                ponto.className = "ponto-luz ponto-secundario";
+                // Espalhados por 15% a 85% do mapa
+                ponto.style.top = (Math.random() * 70 + 15) + "%";
+                ponto.style.left = (Math.random() * 70 + 15) + "%";
+                ponto.style.animationDelay = (Math.random() * 3) + "s";
+                containerMapa.appendChild(ponto);
+            }
+        });
+    </script>
 </body>
 </html>
