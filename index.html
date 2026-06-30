@@ -3,161 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resistência Reciclagem | Soluções para o seu Negócio</title>
+    <title>Resistência Reciclagem | Coleta Comercial</title>
+    <!-- Fonte moderna do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* PALETA DE CORES NOVA: Verde Elegante e Preto Leve */
+        /* CONFIGURAÇÕES GERAIS */
         :root {
-            --verde-logo: #007A33; /* Verde principal inspirado na logo */
-            --verde-escuro: #004D20;
-            --verde-brilhante: #00A846;
-            --preto-leve: #1A1C1A; /* Fundo escuro suave, não é 100% preto */
-            --cinza-escuro: #2D302D;
-            --cinza-claro: #F4F6F4;
-            --branco: #FFFFFF;
+            --verde-principal: #059669; /* Verde mais elegante e escuro */
+            --verde-claro: #10b981;
+            --preto-leve: #1e293b;
+            --cinza-fundo: #f8fafc;
+            --texto-claro: #f1f5f9;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth; /* Faz o menu deslizar suavemente */
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: var(--cinza-claro);
+            background-color: var(--cinza-fundo);
             color: var(--preto-leve);
         }
 
-        /* HEADER E MENU */
+        /* HEADER / MENU */
         header {
-            background-color: var(--branco);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
+            background-color: #ffffff;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
             font-size: 24px;
             font-weight: 800;
             color: var(--preto-leve);
-            display: flex;
-            align-items: center;
-            gap: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
-            color: var(--verde-logo);
+            color: var(--verde-principal);
         }
 
-        .menu-links a {
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
             text-decoration: none;
-            color: var(--cinza-escuro);
+            color: var(--preto-leve);
             font-weight: 600;
-            margin-left: 30px;
+            font-size: 15px;
             transition: color 0.3s;
         }
 
-        .menu-links a:hover {
-            color: var(--verde-brilhante);
+        nav a:hover {
+            color: var(--verde-principal);
         }
 
-        /* HERO SECTION - Foco na Dor do B2B */
+        /* HERO SECTION (BANNER PRINCIPAL) */
         .hero {
-            background: linear-gradient(rgba(26, 28, 26, 0.85), rgba(26, 28, 26, 0.9)), url('https://images.unsplash.com/photo-1558583082-409143c794ca?q=80&w=2000&auto=format&fit=crop') center/cover;
-            color: var(--branco);
-            padding: 120px 5%;
-            text-align: center;
+            /* Foto de fundo de resíduos recicláveis em galpão */
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1604187351574-c75ca79f5807?q=80&w=2070&auto=format&fit=crop') center/cover;
+            height: 70vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            max-width: 800px;
-            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 3.5rem;
             line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .hero h1 span {
-            color: var(--verde-brilhante);
+            color: var(--verde-claro);
         }
 
         .hero p {
+            color: #cbd5e1;
             font-size: 1.2rem;
-            max-width: 700px;
             margin-bottom: 40px;
-            color: #ddd;
+            line-height: 1.6;
         }
 
         .btn-principal {
-            background-color: var(--verde-logo);
-            color: var(--branco);
-            padding: 15px 40px;
-            text-decoration: none;
+            background-color: var(--verde-principal);
+            color: #ffffff;
+            padding: 18px 40px;
             font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s;
-            text-transform: uppercase;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.4);
+            display: inline-block;
         }
 
         .btn-principal:hover {
-            background-color: var(--verde-brilhante);
+            background-color: var(--verde-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 20px -3px rgba(16, 185, 129, 0.5);
         }
 
-        /* SEÇÃO ESTATÍSTICAS */
-        .stats {
-            background-color: var(--verde-logo);
-            color: var(--branco);
+        /* BARRA DE NÚMEROS */
+        .numeros-bar {
+            background-color: var(--verde-principal);
             display: flex;
             justify-content: space-around;
             padding: 40px 5%;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
+            color: white;
             text-align: center;
-            margin: 10px;
         }
 
-        .stat-item h3 {
+        .numero-item h3 {
             font-size: 3rem;
+            font-weight: 800;
             margin-bottom: 5px;
         }
 
-        .stat-item p {
-            font-size: 1.1rem;
+        .numero-item p {
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 600;
             opacity: 0.9;
         }
 
-        /* SEÇÃO MATERIAIS */
+        /* MATERIAIS COLETADOS */
         .materiais {
             padding: 80px 5%;
-            background-color: var(--branco);
+            background-color: #ffffff;
             text-align: center;
         }
 
-        .titulo-secao {
-            color: var(--verde-escuro);
+        .section-title {
             font-size: 2.5rem;
+            color: var(--preto-leve);
             margin-bottom: 50px;
-            text-transform: uppercase;
         }
 
         .grid-materiais {
@@ -171,179 +172,180 @@
         .card-material {
             position: relative;
             height: 350px;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
 
         .card-material img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.5s ease;
         }
 
         .card-material:hover img {
             transform: scale(1.1);
         }
 
-        .card-info {
+        .nome-material {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(transparent, rgba(26, 28, 26, 0.9));
-            color: var(--branco);
             padding: 30px 20px 20px;
-        }
-
-        .card-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            background: linear-gradient(to top, rgba(15,23,42,0.9), transparent);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
             text-transform: uppercase;
+            text-align: center;
         }
 
         /* PARCEIROS */
         .parceiros {
             padding: 80px 5%;
-            background-color: var(--preto-leve);
+            background-color: var(--cinza-fundo);
             text-align: center;
-        }
-
-        .parceiros .titulo-secao {
-            color: var(--branco);
         }
 
         .grid-parceiros {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
             max-width: 1000px;
             margin: 0 auto;
+            align-items: center;
         }
 
-        .parceiro-tag {
-            background-color: var(--cinza-escuro);
-            color: var(--cinza-claro);
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: 1px solid #444;
+        /* Estilo temporário para os parceiros (Até você colocar as imagens) */
+        .logo-parceiro-placeholder {
+            background-color: #ffffff;
+            color: var(--preto-leve);
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
             transition: all 0.3s;
         }
 
-        .parceiro-tag:hover {
-            background-color: var(--verde-logo);
-            color: var(--branco);
-            border-color: var(--verde-logo);
+        .logo-parceiro-placeholder:hover {
+            border-color: var(--verde-principal);
+            transform: translateY(-2px);
         }
 
         /* FOOTER */
         footer {
-            background-color: #111;
-            color: #888;
+            background-color: var(--preto-leve);
+            color: #94a3b8;
             text-align: center;
-            padding: 30px;
+            padding: 30px 5%;
             font-size: 0.9rem;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .numeros-bar { flex-direction: column; gap: 30px; }
+            header { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO LIMPO -->
+    <!-- CABEÇALHO -->
     <header>
+        <div class="logo">Resistência <span>Reciclagem</span></div>
         <nav>
-            <div class="logo">
-                <!-- Dá para trocar por uma tag <img> da sua logo depois -->
-                RESISTÊNCIA <span>RECICLAGEM</span>
-            </div>
-            <div class="menu-links">
-                <a href="#inicio">Home</a>
-                <a href="#solucoes">Soluções</a>
-                <a href="#materiais">Materiais</a>
-                <a href="#parceiros">Parceiros</a>
-            </div>
+            <ul>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#materiais">O que coletamos</a></li>
+                <li><a href="#parceiros">Parceiros</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION - FOCO NA DOR DO RESTAURANTE/COMÉRCIO -->
-    <section id="inicio" class="hero">
-        <h1>O descarte do seu negócio resolvido com <span>Eficiência</span></h1>
-        <p>Restaurantes, panificadoras e galpões logísticos: cuidamos da coleta e destinação correta dos seus resíduos para você focar no que realmente importa: o seu negócio.</p>
-        <a href="#contato" class="btn-principal">Falar com um Especialista</a>
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>O descarte do seu negócio resolvido com <span>Eficiência</span></h1>
+            <p>Restaurantes, panificadoras e galpões logísticos: cuidamos da coleta e destinação correta dos seus resíduos. Reduza custos, evite multas ambientais e foque no seu negócio.</p>
+            <a href="#contato" class="btn-principal">Falar com um Especialista</a>
+        </div>
     </section>
 
-    <!-- ESTATÍSTICAS COM CORES NOVAS -->
-    <section class="stats">
-        <div class="stat-item">
+    <!-- INDICADORES -->
+    <section class="numeros-bar">
+        <div class="numero-item">
             <h3>+200</h3>
-            <p>Clientes Atendidos</p>
+            <p>Clientes Comerciais</p>
         </div>
-        <div class="stat-item">
+        <div class="numero-item">
             <h3>5</h3>
-            <p>Anos de Coleta</p>
+            <p>Anos de Excelência</p>
         </div>
-        <div class="stat-item">
+        <div class="numero-item">
             <h3>100%</h3>
             <p>Destinação Correta</p>
         </div>
     </section>
 
-    <!-- MATERIAIS - AGORA COM FOTOS REAIS E VIDRO -->
+    <!-- MATERIAIS - AGORA COM FOTOS REAIS DE RECICLAGEM -->
     <section id="materiais" class="materiais">
-        <h2 class="titulo-secao">O que coletamos</h2>
+        <h2 class="section-title">O Que Coletamos</h2>
+        
         <div class="grid-materiais">
-            <!-- Plástico -->
+            <!-- Fardo de Plástico -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807?q=80&w=800&auto=format&fit=crop" alt="Plástico">
-                <div class="card-info">
-                    <h3>Plásticos</h3>
-                </div>
+                <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Plásticos">
+                <div class="nome-material">Plásticos</div>
             </div>
-            <!-- Papel -->
+            
+            <!-- Fardo de Papelão -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1603533867307-b354255e3c32?q=80&w=800&auto=format&fit=crop" alt="Papel e Papelão">
-                <div class="card-info">
-                    <h3>Papéis</h3>
-                </div>
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Papelão">
+                <div class="nome-material">Papéis e Papelão</div>
             </div>
-            <!-- Metal -->
+            
+            <!-- Sucata de Metal -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1593019882299-d4642ab6b9ab?q=80&w=800&auto=format&fit=crop" alt="Metal e Alumínio">
-                <div class="card-info">
-                    <h3>Metais</h3>
-                </div>
+                <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Metais">
+                <div class="nome-material">Metais</div>
             </div>
-            <!-- Vidro -->
+            
+            <!-- Vidros Separados -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=800&auto=format&fit=crop" alt="Vidro">
-                <div class="card-info">
-                    <h3>Vidros</h3>
-                </div>
+                <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Vidros">
+                <div class="nome-material">Vidros</div>
             </div>
         </div>
     </section>
 
-    <!-- PARCEIROS -->
+    <!-- PARCEIROS (NOVA ESTRUTURA PARA IMAGENS) -->
     <section id="parceiros" class="parceiros">
-        <h2 class="titulo-secao">Quem Confia na Nossa Coleta</h2>
+        <h2 class="section-title">Grandes empresas confiam na nossa coleta</h2>
+        
         <div class="grid-parceiros">
-            <!-- Como não temos as imagens das logos deles, criei tags chiques. 
-                 Depois podemos trocar pelas imagens reais das logos! -->
-            <div class="parceiro-tag">Família Farinha</div>
-            <div class="parceiro-tag">Vivo</div>
-            <div class="parceiro-tag">Ligga</div>
-            <div class="parceiro-tag">Drive In Burger</div>
-            <div class="parceiro-tag">Paraná Clube</div>
-            <div class="parceiro-tag">Clube Graciosa</div>
-            <div class="parceiro-tag">Alphaville Curitiba</div>
+            <!-- ATENÇÃO: Quando você tiver as logos, apague a <div class="logo-parceiro-placeholder"> e use a tag <img>. Exemplo abaixo: -->
+            <!-- <img src="pasta-de-imagens/logo-familia-farinha.png" alt="Família Farinha" style="max-height: 60px;"> -->
+            
+            <div class="logo-parceiro-placeholder">FAMÍLIA FARINHA</div>
+            <div class="logo-parceiro-placeholder">VIVO</div>
+            <div class="logo-parceiro-placeholder">LIGGA</div>
+            <div class="logo-parceiro-placeholder">DRIVE IN BURGER</div>
+            <div class="logo-parceiro-placeholder">PARANÁ CLUBE</div>
+            <div class="logo-parceiro-placeholder">CLUBE GRACIOSA</div>
+            <div class="logo-parceiro-placeholder">ALPHAVILLE CURITIBA</div>
         </div>
     </section>
 
+    <!-- RODAPÉ -->
     <footer>
-        <p>&copy; 2026 Resistência Reciclagem. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados. Curitiba/PR.</p>
     </footer>
 
 </body>
