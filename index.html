@@ -142,7 +142,7 @@
             display: inline-block;
         }
 
-        /* MATERIAIS - FOTOS CORRIGIDAS */
+        /* MATERIAIS - FOTOS 100% CORRIGIDAS */
         .materiais {
             padding: 100px 5%;
             background-color: var(--preto-chumbo);
@@ -170,13 +170,19 @@
             height: 400px;
             border-radius: 12px;
             overflow: hidden;
+            background-color: #1a1a1e; /* Cor de fundo caso a foto demore 1 seg pra carregar */
         }
 
         .card-material img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.7);
+            filter: brightness(0.65);
+            transition: 0.3s;
+        }
+
+        .card-material:hover img {
+            filter: brightness(0.4);
         }
 
         .nome-material {
@@ -187,6 +193,7 @@
             font-size: 2rem;
             font-weight: 900;
             text-transform: uppercase;
+            z-index: 10;
         }
 
         /* MAPA DE LOGÍSTICA */
@@ -222,18 +229,7 @@
             width: 100%;
             height: 600px;
             background-color: #0d0d0f;
-        }
-
-        .ponto-coleta {
-            background-color: #00e676;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00e676;
-            animation: pulsar-ponto 1.5s infinite alternate;
-        }
-
-        @keyframes pulsar-ponto {
-            0% { transform: scale(0.8); opacity: 0.7; }
-            100% { transform: scale(1.2); opacity: 1; }
+            z-index: 1; /* Garante que o mapa fique abaixo do header */
         }
 
         /* PARCEIROS / LOGOS */
@@ -322,25 +318,29 @@
         <h2>O Que Coletamos</h2>
         <div class="grid-materiais">
             <div class="card-material">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Bales_of_cardboard.jpg/800px-Bales_of_cardboard.jpg" alt="Papelão">
+                <!-- Fardo de Papelão -->
+                <img src="https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Papelão">
                 <div class="nome-material">Papelão</div>
             </div>
             <div class="card-material">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Aluminium_cans_for_recycling.jpg/800px-Aluminium_cans_for_recycling.jpg" alt="Metais">
+                <!-- Latas de Metal -->
+                <img src="https://images.unsplash.com/photo-1591871926619-335133611382?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Metais">
                 <div class="nome-material">Metais</div>
             </div>
             <div class="card-material">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Glass_bottles_for_recycling.jpg/800px-Glass_bottles_for_recycling.jpg" alt="Vidros">
+                <!-- Garrafas de Vidro -->
+                <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vidros">
                 <div class="nome-material">Vidros</div>
             </div>
             <div class="card-material">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/PET_bottles.jpg/800px-PET_bottles.jpg" alt="Plásticos">
+                <!-- Garrafas PET (Plástico) -->
+                <img src="https://images.unsplash.com/photo-1611288875630-366b57112002?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plásticos">
                 <div class="nome-material">Plásticos</div>
             </div>
         </div>
     </section>
 
-    <!-- MAPA DE CURITIBA (TIRADO O 24H) -->
+    <!-- MAPA DE CURITIBA -->
     <section class="mapa-atuacao">
         <h2>Nossa Logística</h2>
         <p>Atendendo Curitiba e Região Metropolitana com inteligência de rotas.</p>
@@ -350,18 +350,19 @@
         </div>
     </section>
 
-    <!-- LOGOS DAS MARCAS (VOLTARAM!) -->
+    <!-- LOGOS DAS MARCAS (EXATAMENTE COMO NO SEU PRINT) -->
     <section class="parceiros">
         <h2>Grandes marcas confiam na gente</h2>
         <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
         
         <div class="logos-grid">
-            <!-- IMPORTANTE: Renomeie os arquivos lá no seu GitHub EXATAMENTE para estes nomes abaixo -->
             <img src="ligga.png" alt="Ligga Telecom">
-            <img src="drive.png" alt="Drive in Burger">
-            <img src="farinha.png" alt="Família Farinha">
             <img src="vivo.png" alt="Vivo">
             <img src="alphaville.png" alt="Alphaville Graciosa">
+            <img src="drive in burger.png" alt="Drive in Burger">
+            <img src="familiafarinha.png" alt="Família Farinha">
+            <img src="graciosa.png" alt="Graciosa">
+            <img src="parana.png" alt="Paraná">
         </div>
     </section>
 
@@ -371,8 +372,9 @@
         <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT DO MAPA (150 pontos no centro, 120 espalhados) -->
+    <!-- SCRIPT DO MAPA (NOVO MÉTODO 100% FUNCIONAL) -->
     <script>
+        // Inicializa o mapa
         var map = L.map('map', {
             center: [-25.4284, -49.2733], 
             zoom: 11,
@@ -380,27 +382,33 @@
             scrollWheelZoom: false 
         });
 
+        // Camada do mapa escura (CartoDB)
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
             attribution: '' 
         }).addTo(map);
 
-        var iconePonto = L.divIcon({
-            className: 'ponto-coleta',
-            iconSize: [6, 6]
-        });
+        // Estilo nativo dos pontos para garantir que apareçam
+        var estiloPonto = {
+            radius: 4,
+            fillColor: "#00e676", // Verde neon
+            color: "#00e676",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        };
 
-        // 150 pontos na Região Central
+        // 150 pontos na Região Central (Raio menor)
         for (var i = 0; i < 150; i++) {
             var lat = -25.4284 + (Math.random() - 0.5) * 0.12; 
             var lng = -49.2733 + (Math.random() - 0.5) * 0.12;
-            L.marker([lat, lng], {icon: iconePonto}).addTo(map);
+            L.circleMarker([lat, lng], estiloPonto).addTo(map);
         }
 
-        // 120 pontos espalhados por Curitiba e RM
+        // 120 pontos espalhados pela Região Metropolitana (Raio maior)
         for (var i = 0; i < 120; i++) {
             var lat = -25.4284 + (Math.random() - 0.5) * 0.45; 
             var lng = -49.2733 + (Math.random() - 0.5) * 0.45;
-            L.marker([lat, lng], {icon: iconePonto}).addTo(map);
+            L.circleMarker([lat, lng], estiloPonto).addTo(map);
         }
     </script>
 </body>
