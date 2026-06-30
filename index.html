@@ -142,7 +142,7 @@
             display: inline-block;
         }
 
-        /* MATERIAIS - FOTOS 100% CORRIGIDAS */
+        /* MATERIAIS - AGORA PUXANDO SUAS FOTOS LOCAIS */
         .materiais {
             padding: 100px 5%;
             background-color: var(--preto-chumbo);
@@ -170,7 +170,7 @@
             height: 400px;
             border-radius: 12px;
             overflow: hidden;
-            background-color: #1a1a1e; /* Cor de fundo caso a foto demore 1 seg pra carregar */
+            background-color: #1a1a1e; 
         }
 
         .card-material img {
@@ -229,10 +229,10 @@
             width: 100%;
             height: 600px;
             background-color: #0d0d0f;
-            z-index: 1; /* Garante que o mapa fique abaixo do header */
+            z-index: 1;
         }
 
-        /* PARCEIROS / LOGOS */
+        /* PARCEIROS / CARROSSEL INFINITO */
         .parceiros {
             padding: 80px 5%;
             background-color: #fff;
@@ -253,17 +253,51 @@
             font-size: 1.1rem;
         }
 
-        .logos-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
             max-width: 1000px;
             margin: 0 auto;
+            white-space: nowrap;
         }
 
-        .logos-grid img {
+        /* Efeito de fade branco nas laterais do carrossel */
+        .carousel-container::before, 
+        .carousel-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 120px;
+            height: 100%;
+            z-index: 2;
+        }
+        .carousel-container::before {
+            left: 0;
+            background: linear-gradient(to right, #fff 0%, transparent 100%);
+        }
+        .carousel-container::after {
+            right: 0;
+            background: linear-gradient(to left, #fff 0%, transparent 100%);
+        }
+
+        .logos-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-logos 25s linear infinite;
+        }
+
+        .logos-track:hover {
+            animation-play-state: paused; /* Pausa ao passar o mouse */
+        }
+
+        .logos-slide {
+            display: flex;
+            align-items: center;
+            gap: 70px; /* Espaço entre as logos */
+            padding-right: 70px; /* Importante para não quebrar a transição */
+        }
+
+        .logos-slide img {
             max-height: 50px;
             max-width: 160px;
             object-fit: contain;
@@ -272,9 +306,14 @@
             transition: 0.3s;
         }
 
-        .logos-grid img:hover {
+        .logos-slide img:hover {
             filter: grayscale(0%);
             opacity: 1;
+        }
+
+        @keyframes scroll-logos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* FOOTER */
@@ -288,6 +327,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             #map { height: 400px; }
+            .logos-slide img { max-width: 120px; }
         }
     </style>
 </head>
@@ -313,28 +353,24 @@
         </div>
     </section>
 
-    <!-- MATERIAIS -->
+    <!-- MATERIAIS (CÓDIGO PUXANDO SUAS FOTOS) -->
     <section class="materiais">
         <h2>O Que Coletamos</h2>
         <div class="grid-materiais">
             <div class="card-material">
-                <!-- Fardo de Papelão -->
-                <img src="https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Papelão">
+                <img src="papelao.png" alt="Papelão">
                 <div class="nome-material">Papelão</div>
             </div>
             <div class="card-material">
-                <!-- Latas de Metal -->
-                <img src="https://images.unsplash.com/photo-1591871926619-335133611382?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Metais">
+                <img src="metal.png" alt="Metais">
                 <div class="nome-material">Metais</div>
             </div>
             <div class="card-material">
-                <!-- Garrafas de Vidro -->
-                <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vidros">
+                <img src="vidro.png" alt="Vidros">
                 <div class="nome-material">Vidros</div>
             </div>
             <div class="card-material">
-                <!-- Garrafas PET (Plástico) -->
-                <img src="https://images.unsplash.com/photo-1611288875630-366b57112002?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plásticos">
+                <img src="plastico.png" alt="Plásticos">
                 <div class="nome-material">Plásticos</div>
             </div>
         </div>
@@ -350,19 +386,35 @@
         </div>
     </section>
 
-    <!-- LOGOS DAS MARCAS (EXATAMENTE COMO NO SEU PRINT) -->
+    <!-- PARCEIROS (CARROSSEL ANIMADO) -->
     <section class="parceiros">
         <h2>Grandes marcas confiam na gente</h2>
         <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
         
-        <div class="logos-grid">
-            <img src="ligga.png" alt="Ligga Telecom">
-            <img src="vivo.png" alt="Vivo">
-            <img src="alphaville.png" alt="Alphaville Graciosa">
-            <img src="drive in burger.png" alt="Drive in Burger">
-            <img src="familiafarinha.png" alt="Família Farinha">
-            <img src="graciosa.png" alt="Graciosa">
-            <img src="parana.png" alt="Paraná">
+        <div class="carousel-container">
+            <div class="logos-track">
+                <!-- GRUPO 1 DE LOGOS -->
+                <div class="logos-slide">
+                    <img src="ligga.png" alt="Ligga Telecom">
+                    <img src="vivo.png" alt="Vivo">
+                    <img src="alphaville.png" alt="Alphaville Graciosa">
+                    <img src="drive in burger.png" alt="Drive in Burger">
+                    <img src="familiafarinha.png" alt="Família Farinha">
+                    <img src="graciosa.png" alt="Graciosa">
+                    <img src="parana.png" alt="Paraná">
+                </div>
+                
+                <!-- GRUPO 2 DE LOGOS (DUPLICADO PARA O CARROSSEL SER INFINITO) -->
+                <div class="logos-slide">
+                    <img src="ligga.png" alt="Ligga Telecom">
+                    <img src="vivo.png" alt="Vivo">
+                    <img src="alphaville.png" alt="Alphaville Graciosa">
+                    <img src="drive in burger.png" alt="Drive in Burger">
+                    <img src="familiafarinha.png" alt="Família Farinha">
+                    <img src="graciosa.png" alt="Graciosa">
+                    <img src="parana.png" alt="Paraná">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -372,9 +424,8 @@
         <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT DO MAPA (NOVO MÉTODO 100% FUNCIONAL) -->
+    <!-- SCRIPT DO MAPA -->
     <script>
-        // Inicializa o mapa
         var map = L.map('map', {
             center: [-25.4284, -49.2733], 
             zoom: 11,
@@ -382,29 +433,27 @@
             scrollWheelZoom: false 
         });
 
-        // Camada do mapa escura (CartoDB)
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
             attribution: '' 
         }).addTo(map);
 
-        // Estilo nativo dos pontos para garantir que apareçam
         var estiloPonto = {
             radius: 4,
-            fillColor: "#00e676", // Verde neon
+            fillColor: "#00e676", 
             color: "#00e676",
             weight: 1,
             opacity: 1,
             fillOpacity: 0.8
         };
 
-        // 150 pontos na Região Central (Raio menor)
+        // 150 pontos na Região Central
         for (var i = 0; i < 150; i++) {
             var lat = -25.4284 + (Math.random() - 0.5) * 0.12; 
             var lng = -49.2733 + (Math.random() - 0.5) * 0.12;
             L.circleMarker([lat, lng], estiloPonto).addTo(map);
         }
 
-        // 120 pontos espalhados pela Região Metropolitana (Raio maior)
+        // 120 pontos espalhados pela Região Metropolitana
         for (var i = 0; i < 120; i++) {
             var lat = -25.4284 + (Math.random() - 0.5) * 0.45; 
             var lng = -49.2733 + (Math.random() - 0.5) * 0.45;
