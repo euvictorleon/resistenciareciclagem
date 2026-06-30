@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resistência Reciclagem</title>
-    <!-- Importando a fonte Inter do Google Fonts (deixa o visual bem moderno) -->
+    <title>Resistência Ambiental - Soluções Sustentáveis</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Variáveis de cores baseadas na sua referência */
         :root {
-            --bg-color: #09090b;
+            /* Cores ajustadas para combinar com a logo */
+            --bg-color: #09090b; /* Fundo quase preto, combina com a logo */
             --card-bg: #18181b;
             --border-color: #27272a;
             --text-main: #fafafa;
             --text-muted: #a1a1aa;
-            --accent-green: #22c55e; /* Um verde mais moderno e suave para combinar com reciclagem */
+            --accent-green: #15803d; /* Verde escuro sofisticado inspirado na logo */
+            --accent-light: #22c55e;
         }
 
         * {
@@ -32,53 +32,48 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Container centralizado */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Cabeçalho / Navbar */
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent-green);
+        .logo-img {
+            height: 60px; /* Altura da logo */
+            width: auto;
+            object-fit: contain;
         }
 
         .btn-header {
-            background-color: var(--text-main);
-            color: var(--bg-color);
+            background-color: var(--accent-light);
+            color: #000;
             padding: 10px 20px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 14px;
             transition: all 0.3s ease;
-            /* Efeito de brilho igual da sua foto */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); 
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); 
         }
 
         .btn-header:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            background-color: #16a34a;
+            color: #fff;
         }
 
-        /* Seção Hero (A principal lá em cima) */
+        /* Hero Section */
         .hero {
-            padding: 100px 0;
+            padding: 80px 0 40px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
@@ -87,11 +82,13 @@
 
         .hero-tag {
             display: inline-block;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--accent-green);
+            background-color: rgba(21, 128, 61, 0.1);
+            color: var(--accent-light);
             padding: 6px 16px;
             border-radius: 50px;
             font-size: 13px;
-            color: var(--text-muted);
+            font-weight: 600;
             margin-bottom: 24px;
         }
 
@@ -122,7 +119,6 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         .btn-secondary {
@@ -133,9 +129,22 @@
             text-decoration: none;
             font-weight: 600;
             border: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
         }
 
-        /* Seção de Cards (O que nós coletamos) */
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Cards de Materiais */
+        .section-title {
+            margin-top: 60px;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -146,32 +155,31 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 32px;
+            padding: 24px;
             transition: transform 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: #3f3f46;
+            border-color: var(--accent-green);
         }
 
-        .card-number {
-            background-color: var(--text-main);
-            color: var(--bg-color);
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 24px;
+        /* Imagem dentro do card */
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background-color: #27272a; /* cor de fundo enquanto a foto não carrega */
         }
 
         .card h3 {
             font-size: 20px;
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .card p {
@@ -179,24 +187,104 @@
             font-size: 15px;
         }
 
-        /* Aviso de rejeitos */
-        .warning {
-            margin-top: 24px;
-            font-size: 13px;
-            color: #ef4444; /* Vermelho suave */
-            font-style: italic;
+        /* Portfólio Section */
+        .portfolio {
+            margin-top: 100px;
+            margin-bottom: 80px;
         }
 
-        /* Responsividade para celular */
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .portfolio-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .portfolio-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/3;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Logos Sociais */
+        .social-proof {
+            padding: 40px 0 80px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .social-proof p {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        .logos-container img {
+            height: 35px;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .logos-container img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* Responsividade */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding: 60px 0;
+                padding: 60px 0 20px 0;
             }
             .hero h1 {
                 font-size: 40px;
             }
             .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -207,53 +295,92 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="logo">Resistência<span>.</span></div>
+            <a href="#">
+                <!-- SUBSTITUA AQUI PELO NOME DA IMAGEM DA LOGO -->
+                <img src="logo.png" alt="Resistência Ambiental" class="logo-img">
+            </a>
             <a href="#" class="btn-header">Falar com consultor</a>
         </header>
 
         <!-- Seção Principal -->
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-tag">● Gestão Inteligente em Curitiba e RMC</div>
+                <div class="hero-tag">🌱 Soluções sustentáveis, futuro possível.</div>
                 <h1>Transforme seu lixo em impacto positivo.</h1>
                 <p>Atendemos condomínios, empresas e residências garantindo a destinação correta dos seus materiais recicláveis com transparência, eficiência e estratégia.</p>
                 
                 <div class="hero-buttons">
                     <a href="#" class="btn-primary">Agendar coleta</a>
-                    <a href="#" class="btn-secondary">Como funciona</a>
+                    <a href="#" class="btn-secondary">Nosso processo</a>
                 </div>
             </div>
 
-            <!-- Cards inspirados na sua referência -->
-            <div class="features-grid">
-                <div class="card">
-                    <div class="card-number">1</div>
-                    <h3>Papel e Papelão</h3>
-                    <p>Coleta de caixas, jornais, revistas e embalagens limpas para retorno ao ciclo produtivo.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-number">2</div>
-                    <h3>Plástico</h3>
-                    <p>Destinação correta de garrafas PET, embalagens, potes e tampas plásticas.</p>
-                </div>
+            <!-- Cards de Materiais com Fotos -->
+            <div class="materiais">
+                <div class="features-grid">
+                    <div class="card">
+                        <!-- Foto do Papel -->
+                        <img src="foto-papel.jpg" alt="Papel e Papelão" class="card-img">
+                        <h3>Papel e Papelão</h3>
+                        <p>Coleta de caixas, jornais, revistas e embalagens limpas para retorno ao ciclo produtivo.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <!-- Foto do Plástico -->
+                        <img src="foto-plastico.jpg" alt="Plástico" class="card-img">
+                        <h3>Plástico</h3>
+                        <p>Destinação correta de garrafas PET, embalagens, potes e tampas plásticas.</p>
+                    </div>
 
-                <div class="card">
-                    <div class="card-number">3</div>
-                    <h3>Metal e Alumínio</h3>
-                    <p>Reciclagem de latinhas, sucatas leves e conservas, gerando alto impacto de reaproveitamento.</p>
-                </div>
+                    <div class="card">
+                        <!-- Foto do Metal -->
+                        <img src="foto-metal.jpg" alt="Metal e Alumínio" class="card-img">
+                        <h3>Metal e Alumínio</h3>
+                        <p>Reciclagem de latinhas, sucatas leves e conservas, gerando alto impacto de reaproveitamento.</p>
+                    </div>
 
-                <div class="card">
-                    <div class="card-number">4</div>
-                    <h3>Vidro</h3>
-                    <p>Garrafas e frascos inteiros ou quebrados (embalados corretamente para segurança).</p>
+                    <div class="card">
+                        <!-- Foto do Vidro -->
+                        <img src="foto-vidro.jpg" alt="Vidro" class="card-img">
+                        <h3>Vidro</h3>
+                        <p>Garrafas e frascos inteiros ou quebrados (embalados corretamente para segurança).</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <p class="warning">*Política de Rejeitos: Não coletamos lixo orgânico, resíduos hospitalares, tóxicos ou entulhos de construção.</p>
-        <br><br>
+        <!-- NOVO: Seção de Portfólio -->
+        <section class="portfolio">
+            <div class="portfolio-header">
+                <h2>Nosso Impacto em Ação</h2>
+                <p>Acompanhe os bastidores do nosso trabalho diário pela sustentabilidade em Curitiba e RMC.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Fotos do Portfólio (Caminhões, galpão, equipe, etc) -->
+                <div class="portfolio-item">
+                    <img src="portfolio-1.jpg" alt="Trabalho em ação">
+                </div>
+                <div class="portfolio-item">
+                    <img src="portfolio-2.jpg" alt="Nossa estrutura">
+                </div>
+                <div class="portfolio-item">
+                    <img src="portfolio-3.jpg" alt="Materiais recolhidos">
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE LOGOS (SOCIAL PROOF) -->
+        <section class="social-proof">
+            <p>Empresas que confiam na nossa gestão ambiental</p>
+            <div class="logos-container">
+                <img src="https://via.placeholder.com/150x40/18181b/fafafa?text=Logo+Cliente+1" alt="Cliente 1">
+                <img src="https://via.placeholder.com/130x40/18181b/fafafa?text=Logo+Cliente+2" alt="Cliente 2">
+                <img src="https://via.placeholder.com/140x40/18181b/fafafa?text=Logo+Cliente+3" alt="Cliente 3">
+                <img src="https://via.placeholder.com/160x40/18181b/fafafa?text=Logo+Cliente+4" alt="Cliente 4">
+            </div>
+        </section>
+
     </div>
 
 </body>
