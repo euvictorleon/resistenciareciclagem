@@ -4,185 +4,269 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resistência Reciclagem | Coleta Comercial</title>
-    <!-- Fonte moderna do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Fonte moderna e agressiva do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         /* CONFIGURAÇÕES GERAIS */
         :root {
-            --verde-principal: #059669; /* Verde mais elegante e escuro */
-            --verde-claro: #10b981;
-            --preto-leve: #1e293b;
-            --cinza-fundo: #f8fafc;
-            --texto-claro: #f1f5f9;
+            --verde-primario: #008a4b; /* Verde forte, de confiança */
+            --verde-destaque: #00c853; /* Verde botão do WhatsApp */
+            --preto-chumbo: #121214;
+            --cinza-escuro: #202024;
+            --cinza-claro: #f3f4f6;
+            --texto-claro: #e1e1e6;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--cinza-fundo);
-            color: var(--preto-leve);
+            background-color: var(--cinza-claro);
+            color: var(--preto-chumbo);
+            overflow-x: hidden;
         }
 
-        /* HEADER / MENU */
+        /* BOTÃO WHATSAPP FLUTUANTE (O SEGREDO DA CONVERSÃO) */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--verde-destaque);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse-green 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 200, 83, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+        }
+
+        /* HEADER INVISÍVEL ATÉ ROLAR */
         header {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo {
             font-size: 24px;
-            font-weight: 800;
-            color: var(--preto-leve);
+            font-weight: 900;
+            color: var(--preto-chumbo);
             text-transform: uppercase;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
         }
 
         .logo span {
-            color: var(--verde-principal);
+            color: var(--verde-primario);
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
+        .btn-header {
+            background-color: var(--verde-primario);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
             text-decoration: none;
-            color: var(--preto-leve);
-            font-weight: 600;
-            font-size: 15px;
-            transition: color 0.3s;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        
+        .btn-header:hover {
+            background-color: var(--preto-chumbo);
         }
 
-        nav a:hover {
-            color: var(--verde-principal);
-        }
-
-        /* HERO SECTION (BANNER PRINCIPAL) */
+        /* HERO SECTION (A DOBRA PRINCIPAL) */
         .hero {
-            /* Foto de fundo de resíduos recicláveis em galpão */
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1604187351574-c75ca79f5807?q=80&w=2070&auto=format&fit=crop') center/cover;
-            height: 70vh;
+            background: linear-gradient(135deg, rgba(18,18,20,0.9) 0%, rgba(18,18,20,0.7) 100%), url('https://images.unsplash.com/photo-1604187351574-c75ca79f5807?q=80&w=2070&auto=format&fit=crop') center/cover;
+            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
+            justify-content: flex-start;
+            padding: 0 5%;
+            padding-top: 80px; /* Compensa o header fixo */
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            background-color: rgba(0, 138, 75, 0.2);
+            border: 1px solid var(--verde-primario);
+            color: #00ff88;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
             color: #ffffff;
-            font-size: 3.5rem;
-            line-height: 1.2;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
         .hero h1 span {
-            color: var(--verde-claro);
+            color: var(--verde-destaque);
         }
 
         .hero p {
-            color: #cbd5e1;
+            color: var(--texto-claro);
             font-size: 1.2rem;
             margin-bottom: 40px;
             line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .hero-botoes {
+            display: flex;
+            gap: 20px;
         }
 
         .btn-principal {
-            background-color: var(--verde-principal);
-            color: #ffffff;
-            padding: 18px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            background-color: var(--verde-destaque);
+            color: var(--preto-chumbo);
+            padding: 20px 45px;
+            font-size: 1.2rem;
+            font-weight: 800;
             text-decoration: none;
             border-radius: 8px;
+            text-transform: uppercase;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.4);
             display: inline-block;
         }
 
         .btn-principal:hover {
-            background-color: var(--verde-claro);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 20px -3px rgba(16, 185, 129, 0.5);
-        }
-
-        /* BARRA DE NÚMEROS */
-        .numeros-bar {
-            background-color: var(--verde-principal);
-            display: flex;
-            justify-content: space-around;
-            padding: 40px 5%;
-            color: white;
-            text-align: center;
-        }
-
-        .numero-item h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-
-        .numero-item p {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            opacity: 0.9;
-        }
-
-        /* MATERIAIS COLETADOS */
-        .materiais {
-            padding: 80px 5%;
             background-color: #ffffff;
-            text-align: center;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,200,83,0.4);
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--preto-leve);
-            margin-bottom: 50px;
+        /* BENEFÍCIOS (DORES DO CLIENTE) */
+        .beneficios {
+            background-color: var(--preto-chumbo);
+            padding: 80px 5%;
+            color: white;
+            position: relative;
+        }
+
+        .grid-beneficios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card-beneficio {
+            background-color: var(--cinza-escuro);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--verde-primario);
+            transition: 0.3s;
+        }
+
+        .card-beneficio:hover {
+            transform: translateY(-10px);
+            border-left-color: var(--verde-destaque);
+        }
+
+        .card-beneficio h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--verde-destaque);
+        }
+
+        .card-beneficio p {
+            color: var(--texto-claro);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* MATERIAIS - GALERIA PREMIUM */
+        .materiais {
+            padding: 100px 5%;
+            background-color: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--preto-chumbo);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #64748b;
         }
 
         .grid-materiais {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .card-material {
             position: relative;
-            height: 350px;
+            height: 400px;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .card-material img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .card-material:hover img {
@@ -194,158 +278,245 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 30px 20px 20px;
-            background: linear-gradient(to top, rgba(15,23,42,0.9), transparent);
+            padding: 40px 20px 20px;
+            background: linear-gradient(to top, rgba(18,18,20,0.95), transparent);
             color: white;
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.8rem;
+            font-weight: 900;
             text-transform: uppercase;
+        }
+
+        /* PASSO A PASSO (COMO FUNCIONA) */
+        .passo-a-passo {
+            background-color: var(--cinza-claro);
+            padding: 100px 5%;
             text-align: center;
         }
 
-        /* PARCEIROS */
+        .grid-passos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .passo {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .numero-passo {
+            background-color: var(--verde-primario);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 10px rgba(0,138,75,0.4);
+        }
+
+        .passo h3 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* PARCEIROS - ESTILO "TRUST SIGNS" */
         .parceiros {
             padding: 80px 5%;
-            background-color: var(--cinza-fundo);
+            background-color: #ffffff;
             text-align: center;
+            border-top: 1px solid #e2e8f0;
         }
 
         .grid-parceiros {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 40px auto 0;
             align-items: center;
+            opacity: 0.7; /* Dá um tom mais elegante */
+            filter: grayscale(100%); /* Deixa tudo preto e branco, estilo premium */
+            transition: 0.3s;
         }
 
-        /* Estilo temporário para os parceiros (Até você colocar as imagens) */
+        .grid-parceiros:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
         .logo-parceiro-placeholder {
-            background-color: #ffffff;
-            color: var(--preto-leve);
-            padding: 20px 30px;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s;
+            padding: 15px 30px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: #64748b;
         }
 
-        .logo-parceiro-placeholder:hover {
-            border-color: var(--verde-principal);
-            transform: translateY(-2px);
-        }
-
-        /* FOOTER */
+        /* FOOTER DA LP */
         footer {
-            background-color: var(--preto-leve);
+            background-color: var(--preto-chumbo);
             color: #94a3b8;
             text-align: center;
-            padding: 30px 5%;
+            padding: 40px 5%;
             font-size: 0.9rem;
         }
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .numeros-bar { flex-direction: column; gap: 30px; }
-            header { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-botoes { flex-direction: column; }
+            .btn-principal { text-align: center; }
+            .btn-header { display: none; } /* Some o botão do topo no celular para ficar mais limpo */
         }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5541999999999" target="_blank" class="whatsapp-float">
+        <!-- Ícone SVG do WhatsApp (nativo, não precisa baixar imagem) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- CABEÇALHO (AGORA FIXO E MODERNO) -->
     <header>
         <div class="logo">Resistência <span>Reciclagem</span></div>
-        <nav>
-            <ul>
-                <li><a href="#solucoes">Soluções</a></li>
-                <li><a href="#materiais">O que coletamos</a></li>
-                <li><a href="#parceiros">Parceiros</a></li>
-            </ul>
-        </nav>
+        <a href="#contato" class="btn-header">Solicitar Coleta</a>
     </header>
 
-    <!-- BANNER PRINCIPAL (HERO) -->
+    <!-- HERO (A DOBRA PRINCIPAL - FOCADA EM CONVERSÃO) -->
     <section class="hero">
         <div class="hero-content">
-            <h1>O descarte do seu negócio resolvido com <span>Eficiência</span></h1>
-            <p>Restaurantes, panificadoras e galpões logísticos: cuidamos da coleta e destinação correta dos seus resíduos. Reduza custos, evite multas ambientais e foque no seu negócio.</p>
-            <a href="#contato" class="btn-principal">Falar com um Especialista</a>
+            <div class="hero-badge">Avaliamos seu resíduo gratuitamente</div>
+            <h1>A Solução de <span>Coleta de Resíduos</span> para o seu Negócio</h1>
+            <p>Adequação ambiental, certificado de destinação correta e logística eficiente para restaurantes, panificadoras e condomínios. Sem dor de cabeça, sem multas.</p>
+            <div class="hero-botoes">
+                <a href="https://wa.me/5541999999999" target="_blank" class="btn-principal">Agendar Coleta pelo WhatsApp</a>
+            </div>
         </div>
     </section>
 
-    <!-- INDICADORES -->
-    <section class="numeros-bar">
-        <div class="numero-item">
-            <h3>+200</h3>
-            <p>Clientes Comerciais</p>
+    <!-- POR QUE ESCOLHER A RESISTÊNCIA? (GATILHOS E DORES) -->
+    <section class="beneficios">
+        <div class="section-header">
+            <h2 style="color: white;">Por que a Resistência?</h2>
+            <p style="color: #94a3b8;">Resolvemos os maiores problemas de descarte do seu negócio.</p>
         </div>
-        <div class="numero-item">
-            <h3>5</h3>
-            <p>Anos de Excelência</p>
-        </div>
-        <div class="numero-item">
-            <h3>100%</h3>
-            <p>Destinação Correta</p>
+        <div class="grid-beneficios">
+            <div class="card-beneficio">
+                <h3>Normas e Certificados</h3>
+                <p>Garantimos a adequação do seu estabelecimento às leis ambientais, emitindo certificado de destinação final. Evite multas da prefeitura e fiscalizações.</p>
+            </div>
+            <div class="card-beneficio">
+                <h3>Logística Eficiente</h3>
+                <p>Nossa equipe faz a coleta com pontualidade. Não deixe lixo acumulando, gerando mau cheiro e ocupando espaço nobre da sua operação.</p>
+            </div>
+            <div class="card-beneficio">
+                <h3>Atendimento Especializado</h3>
+                <p>Profissionais uniformizados, frota adequada e atendimento focado na necessidade específica do seu galpão, restaurante ou condomínio.</p>
+            </div>
         </div>
     </section>
 
-    <!-- MATERIAIS - AGORA COM FOTOS REAIS DE RECICLAGEM -->
+    <!-- COMO FUNCIONA (PASSO A PASSO) -->
+    <section class="passo-a-passo">
+        <div class="section-header">
+            <h2>Como Funciona?</h2>
+            <p>Seu descarte resolvido em 3 passos simples.</p>
+        </div>
+        <div class="grid-passos">
+            <div class="passo">
+                <div class="numero-passo">1</div>
+                <h3>Agendamento</h3>
+                <p>Você entra em contato conosco pelo WhatsApp e agenda a avaliação e coleta dos seus resíduos.</p>
+            </div>
+            <div class="passo">
+                <div class="numero-passo">2</div>
+                <h3>Coleta Segura</h3>
+                <p>Nossa equipe vai até o seu negócio e realiza a retirada do material com total higiene e segurança.</p>
+            </div>
+            <div class="passo">
+                <div class="numero-passo">3</div>
+                <h3>Certificação</h3>
+                <p>Você recebe a documentação comprovando a destinação correta, ficando em dia com a legislação.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATERIAIS COLETADOS (AGORA MAIS IMPONENTE) -->
     <section id="materiais" class="materiais">
-        <h2 class="section-title">O Que Coletamos</h2>
-        
+        <div class="section-header">
+            <h2>O Que Coletamos</h2>
+            <p>Estrutura completa para processar diversos tipos de materiais do seu negócio.</p>
+        </div>
         <div class="grid-materiais">
             <!-- Fardo de Plástico -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Plásticos">
+                <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?q=80&w=800&auto=format&fit=crop" alt="Plásticos">
                 <div class="nome-material">Plásticos</div>
             </div>
-            
             <!-- Fardo de Papelão -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Papelão">
-                <div class="nome-material">Papéis e Papelão</div>
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop" alt="Papel e Papelão">
+                <div class="nome-material">Papel e Papelão</div>
             </div>
-            
             <!-- Sucata de Metal -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Metais">
+                <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=800&auto=format&fit=crop" alt="Metais">
                 <div class="nome-material">Metais</div>
             </div>
-            
             <!-- Vidros Separados -->
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=800&auto=format&fit=crop" alt="Reciclagem de Vidros">
+                <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=800&auto=format&fit=crop" alt="Vidros">
                 <div class="nome-material">Vidros</div>
             </div>
         </div>
     </section>
 
-    <!-- PARCEIROS (NOVA ESTRUTURA PARA IMAGENS) -->
+    <!-- PROVA SOCIAL / PARCEIROS -->
     <section id="parceiros" class="parceiros">
-        <h2 class="section-title">Grandes empresas confiam na nossa coleta</h2>
+        <div class="section-header" style="margin-bottom: 20px;">
+            <h2>Grandes Marcas Confiam na Gente</h2>
+        </div>
         
         <div class="grid-parceiros">
-            <!-- ATENÇÃO: Quando você tiver as logos, apague a <div class="logo-parceiro-placeholder"> e use a tag <img>. Exemplo abaixo: -->
-            <!-- <img src="pasta-de-imagens/logo-familia-farinha.png" alt="Família Farinha" style="max-height: 60px;"> -->
-            
+            <!-- LEMBRETE: Trocar por tags <img> quando tiver os arquivos, igual expliquei antes! -->
             <div class="logo-parceiro-placeholder">FAMÍLIA FARINHA</div>
             <div class="logo-parceiro-placeholder">VIVO</div>
             <div class="logo-parceiro-placeholder">LIGGA</div>
             <div class="logo-parceiro-placeholder">DRIVE IN BURGER</div>
             <div class="logo-parceiro-placeholder">PARANÁ CLUBE</div>
             <div class="logo-parceiro-placeholder">CLUBE GRACIOSA</div>
-            <div class="logo-parceiro-placeholder">ALPHAVILLE CURITIBA</div>
         </div>
     </section>
 
     <!-- RODAPÉ -->
     <footer>
-        <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados. Curitiba/PR.</p>
+        <h2 style="color: white; margin-bottom: 15px;">Resistência Reciclagem</h2>
+        <p>A solução definitiva e consciente para os resíduos da sua empresa.</p>
+        <p style="margin-top: 20px;">&copy; 2024 Resistência Reciclagem. Curitiba/PR.</p>
     </footer>
 
 </body>
