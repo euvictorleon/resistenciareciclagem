@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resistência Reciclagem | Soluções Empresariais</title>
-    <!-- Fonte Premium do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS e JS DO MAPA DE CURITIBA (Leaflet) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <style>
-        /* CONFIGURAÇÕES GERAIS - MODO PREMIUM */
         :root {
             --verde-primario: #008a4b; 
             --verde-destaque: #00e676;
@@ -15,7 +18,6 @@
             --cinza-escuro: #1a1a1e;
             --cinza-claro: #f8fafc;
             --texto-claro: #cbd5e1;
-            --sombra-premium: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         * {
@@ -49,12 +51,7 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: all 0.3s ease;
             animation: pulse-green 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.15) rotate(-5deg);
         }
 
         @keyframes pulse-green {
@@ -63,10 +60,10 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* HEADER GLASSMORPHISM (Voltando pro texto como pedido) */
+        /* HEADER */
         header {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
@@ -75,14 +72,12 @@
             width: 100%;
             top: 0;
             z-index: 999;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .logo {
             font-size: 1.6rem;
             font-weight: 900;
-            color: var(--preto-chumbo);
             text-transform: uppercase;
             letter-spacing: -1px;
         }
@@ -100,13 +95,6 @@
             font-weight: 800;
             font-size: 0.85rem;
             text-transform: uppercase;
-            transition: 0.3s;
-            border: 2px solid var(--preto-chumbo);
-        }
-        
-        .btn-header:hover {
-            background-color: transparent;
-            color: var(--preto-chumbo);
         }
 
         /* HERO SECTION */
@@ -115,27 +103,12 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
             padding: 0 5%;
             padding-top: 80px;
         }
 
         .hero-content {
             max-width: 750px;
-        }
-
-        .hero-badge {
-            background-color: rgba(0, 230, 118, 0.15);
-            border: 1px solid var(--verde-destaque);
-            color: var(--verde-destaque);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 25px;
         }
 
         .hero h1 {
@@ -145,148 +118,48 @@
             line-height: 1.05;
             margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: -2px;
         }
 
         .hero h1 span {
-            background: linear-gradient(90deg, #00e676, #00b0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--verde-destaque);
         }
 
         .hero p {
             color: var(--texto-claro);
             font-size: 1.25rem;
             margin-bottom: 45px;
-            line-height: 1.7;
-            font-weight: 400;
-            max-width: 600px;
         }
 
         .btn-principal {
-            background: linear-gradient(90deg, var(--verde-primario), var(--verde-destaque));
-            color: var(--preto-chumbo);
+            background: var(--verde-primario);
+            color: #fff;
             padding: 22px 50px;
             font-size: 1.1rem;
             font-weight: 900;
             text-decoration: none;
             border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-block;
-            box-shadow: 0 10px 30px rgba(0, 230, 118, 0.3);
         }
 
-        .btn-principal:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 230, 118, 0.5);
-            color: #fff;
-        }
-
-        /* COMO FUNCIONA */
-        .passo-a-passo {
-            background-color: var(--cinza-claro);
-            padding: 120px 5%;
-            text-align: center;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 70px;
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--preto-chumbo);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: #64748b;
-            font-weight: 600;
-        }
-
-        .grid-passos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .passo {
-            background: #fff;
-            padding: 60px 40px 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            position: relative;
-            transition: all 0.4s ease;
-            border-top: 5px solid #fff;
-        }
-
-        .passo:hover {
-            transform: translateY(-15px);
-            border-top: 5px solid var(--verde-primario);
-            box-shadow: var(--sombra-premium);
-        }
-
-        .numero-passo {
-            background: linear-gradient(135deg, var(--verde-primario), var(--verde-destaque));
-            color: #fff;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 900;
-            position: absolute;
-            top: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 10px 20px rgba(0,230,118,0.4);
-            border: 6px solid var(--cinza-claro);
-        }
-
-        .passo h3 {
-            font-size: 1.4rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: var(--preto-chumbo);
-            text-transform: uppercase;
-        }
-
-        .passo p {
-            color: #475569;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-
-        /* MATERIAIS COLETADOS (Imagens Novas Que Funcionam) */
+        /* MATERIAIS - FOTOS CORRIGIDAS */
         .materiais {
             padding: 100px 5%;
             background-color: var(--preto-chumbo);
-            color: #fff;
+            text-align: center;
         }
 
-        .materiais .section-header h2 {
+        .materiais h2 {
             color: #fff;
-        }
-
-        .materiais .section-header p {
-            color: var(--texto-claro);
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 50px;
         }
 
         .grid-materiais {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
@@ -294,145 +167,118 @@
 
         .card-material {
             position: relative;
-            height: 450px;
-            border-radius: 16px;
+            height: 400px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-            cursor: crosshair;
         }
 
         .card-material img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-
-        .card-material:hover img {
-            transform: scale(1.15);
+            filter: brightness(0.7);
         }
 
         .nome-material {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 60px 30px 30px;
-            background: linear-gradient(to top, rgba(13,13,15,1) 0%, rgba(13,13,15,0) 100%);
+            bottom: 20px;
+            left: 20px;
             color: white;
             font-size: 2rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -1px;
+        }
+
+        /* MAPA DE LOGÍSTICA */
+        .mapa-atuacao {
+            padding: 100px 5%;
+            background: #050505;
+            text-align: center;
+        }
+
+        .mapa-atuacao h2 {
+            color: #fff;
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .mapa-atuacao p {
+            color: var(--verde-destaque);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .map-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid #1a1a1e;
+        }
+
+        #map {
+            width: 100%;
+            height: 600px;
+            background-color: #0d0d0f;
+        }
+
+        .ponto-coleta {
+            background-color: #00e676;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00e676;
+            animation: pulsar-ponto 1.5s infinite alternate;
+        }
+
+        @keyframes pulsar-ponto {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* PARCEIROS / LOGOS */
+        .parceiros {
+            padding: 80px 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .parceiros h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--preto-chumbo);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .parceiros p {
+            color: #64748b;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .logos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .logos-grid img {
+            max-height: 50px;
+            max-width: 160px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
             transition: 0.3s;
         }
 
-        .card-material:hover .nome-material {
-            padding-bottom: 40px;
-            color: var(--verde-destaque);
-        }
-
-        /* NOVA SEÇÃO DE LOGÍSTICA (Mapa Elegante e Limpo) */
-        .mapa-atuacao {
-            padding: 100px 5%;
-            background: linear-gradient(to bottom, #050505, #0d0d0f);
-            color: #fff;
-            text-align: center;
-        }
-
-        .mapa-atuacao .section-header p {
-            color: var(--verde-destaque);
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 50px auto 0;
-        }
-
-        .stat-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(0, 230, 118, 0.15);
-            padding: 50px 30px;
-            border-radius: 16px;
-            flex: 1;
-            min-width: 280px;
-            transition: all 0.4s ease;
-        }
-
-        .stat-box:hover {
-            background: rgba(0, 230, 118, 0.05);
-            border-color: var(--verde-destaque);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 230, 118, 0.1);
-        }
-
-        .stat-box h3 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--verde-destaque);
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        .stat-box p {
-            color: var(--texto-claro);
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* CARROSSEL DE PARCEIROS */
-        .parceiros {
-            padding: 100px 5%;
-            background-color: #fff;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .logos-slider {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 60px auto 0;
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-        }
-
-        .logos-track {
-            display: flex;
-            align-items: center;
-            width: max-content;
-            gap: 80px; 
-            animation: rolarLogos 25s linear infinite;
-        }
-
-        .logos-track:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes rolarLogos {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
-
-        .logo-parceiro {
-            height: 60px;
-            object-fit: contain;
-            filter: grayscale(100%) opacity(0.6);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .logo-parceiro:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.1);
+        .logos-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
         /* FOOTER */
@@ -440,164 +286,122 @@
             background-color: #000;
             color: #64748b;
             text-align: center;
-            padding: 60px 5%;
+            padding: 50px 5%;
         }
 
-        footer h2 {
-            color: #fff;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
-            .btn-header { display: none; }
-            .logos-track { gap: 50px; }
-            .logo-parceiro { height: 45px; }
-            .stat-box { min-width: 100%; }
+            #map { height: 400px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BOTÃO WHATSAPP FLUTUANTE -->
-    <a href="https://wa.me/5541998871864" target="_blank" class="whatsapp-float">
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/5541998871864" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
     </a>
 
-    <!-- CABEÇALHO (Voltou para o texto) -->
+    <!-- HEADER -->
     <header>
         <div class="logo">Resistência<span>Reciclagem</span></div>
-        <a href="https://wa.me/5541998871864" target="_blank" class="btn-header">Falar com Consultor</a>
+        <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Faça sua cotação</div>
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
-            <p>Adequação ambiental e logística eficiente para indústrias, restaurantes e condomínios. Deixe a gestão de resíduos com quem entende.</p>
-            <a href="https://wa.me/5541998871864" target="_blank" class="btn-principal">Fazer Orçamento pelo WhatsApp</a>
+            <p>Adequação ambiental e logística eficiente para indústrias, restaurantes e condomínios em toda Curitiba.</p>
+            <a href="https://wa.me/5541998871864" class="btn-principal">Fazer Orçamento</a>
         </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section class="passo-a-passo">
-        <div class="section-header">
-            <h2>Como Funciona?</h2>
-            <p>Um processo direto, sem burocracia e focado na sua necessidade.</p>
-        </div>
-        <div class="grid-passos">
-            <div class="passo">
-                <div class="numero-passo">1</div>
-                <h3>Contato Inicial</h3>
-                <p>Você entra em contato com nosso time pelo WhatsApp e explica o tipo e a quantidade de material que seu negócio gera.</p>
-            </div>
-            <div class="passo">
-                <div class="numero-passo">2</div>
-                <h3>Análise do Plano</h3>
-                <p>Avaliamos sua demanda e definimos juntos o melhor plano, frequência de coleta e orçamento ideal para sua operação.</p>
-            </div>
-            <div class="passo">
-                <div class="numero-passo">3</div>
-                <h3>Coleta & Certificação</h3>
-                <p>Nossa equipe realiza a retirada pontual e emitimos toda a documentação legal comprovando a destinação correta.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- MATERIAIS COLETADOS (Links Novos e Funcionando) -->
-    <section id="materiais" class="materiais">
-        <div class="section-header">
-            <h2>O Que Coletamos</h2>
-            <p>Processamos e destinamos corretamente grandes volumes do seu negócio.</p>
-        </div>
+    <!-- MATERIAIS -->
+    <section class="materiais">
+        <h2>O Que Coletamos</h2>
         <div class="grid-materiais">
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807?q=80&w=800&auto=format&fit=crop" alt="Papelão">
-                <div class="nome-material">Papel e Papelão</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Bales_of_cardboard.jpg/800px-Bales_of_cardboard.jpg" alt="Papelão">
+                <div class="nome-material">Papelão</div>
             </div>
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1536890992765-f42a1ee1e2a8?q=80&w=800&auto=format&fit=crop" alt="Metais">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Aluminium_cans_for_recycling.jpg/800px-Aluminium_cans_for_recycling.jpg" alt="Metais">
                 <div class="nome-material">Metais</div>
             </div>
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1517420879524-86d64ac2f339?q=80&w=800&auto=format&fit=crop" alt="Vidros">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Glass_bottles_for_recycling.jpg/800px-Glass_bottles_for_recycling.jpg" alt="Vidros">
                 <div class="nome-material">Vidros</div>
             </div>
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?q=80&w=800&auto=format&fit=crop" alt="Plásticos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/PET_bottles.jpg/800px-PET_bottles.jpg" alt="Plásticos">
                 <div class="nome-material">Plásticos</div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO LOGÍSTICA SUBSTITUINDO O MAPA ESTRANHO -->
+    <!-- MAPA DE CURITIBA (TIRADO O 24H) -->
     <section class="mapa-atuacao">
-        <div class="section-header">
-            <h2>Nossa Logística</h2>
-            <p>Atendendo Curitiba e Região Metropolitana com agilidade e inteligência de rotas.</p>
-        </div>
+        <h2>Nossa Logística</h2>
+        <p>Atendendo Curitiba e Região Metropolitana com inteligência de rotas.</p>
         
-        <div class="stats-container">
-            <div class="stat-box">
-                <h3>+200</h3>
-                <p>Pontos de Coleta Ativos</p>
-            </div>
-            <div class="stat-box">
-                <h3>24h</h3>
-                <p>Suporte e Monitoramento</p>
-            </div>
-            <div class="stat-box">
-                <h3>100%</h3>
-                <p>Adequação Ambiental</p>
-            </div>
+        <div class="map-wrapper">
+            <div id="map"></div>
         </div>
     </section>
 
-    <!-- CARROSSEL DE PARCEIROS (Nomes Corrigidos) -->
-    <section id="parceiros" class="parceiros">
-        <div class="section-header" style="margin-bottom: 20px;">
-            <h2>Grandes Marcas Confiam na Gente</h2>
-            <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
-        </div>
+    <!-- LOGOS DAS MARCAS (VOLTARAM!) -->
+    <section class="parceiros">
+        <h2>Grandes marcas confiam na gente</h2>
+        <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
         
-        <div class="logos-slider">
-            <div class="logos-track">
-                
-                <!-- GRUPO 1: ATENÇÃO AOS NOMES AQUI -->
-                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
-                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
-                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
-                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
-                <img src="burger.png" alt="Drive in Burger" class="logo-parceiro">
-                <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
-                <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
-
-                <!-- GRUPO 2: DUPLICADO PARA EFEITO INFINITO -->
-                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
-                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
-                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
-                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
-                <img src="burger.png" alt="Drive in Burger" class="logo-parceiro">
-                <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
-                <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
-
-            </div>
+        <div class="logos-grid">
+            <!-- IMPORTANTE: Renomeie os arquivos lá no seu GitHub EXATAMENTE para estes nomes abaixo -->
+            <img src="ligga.png" alt="Ligga Telecom">
+            <img src="drive.png" alt="Drive in Burger">
+            <img src="farinha.png" alt="Família Farinha">
+            <img src="vivo.png" alt="Vivo">
+            <img src="alphaville.png" alt="Alphaville Graciosa">
         </div>
     </section>
 
-    <!-- RODAPÉ -->
+    <!-- FOOTER -->
     <footer>
         <h2>Resistência Reciclagem</h2>
-        <p>A solução definitiva e consciente para os resíduos da sua empresa.</p>
-        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.5;">&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- SCRIPT DO MAPA (150 pontos no centro, 120 espalhados) -->
+    <script>
+        var map = L.map('map', {
+            center: [-25.4284, -49.2733], 
+            zoom: 11,
+            zoomControl: true,
+            scrollWheelZoom: false 
+        });
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '' 
+        }).addTo(map);
+
+        var iconePonto = L.divIcon({
+            className: 'ponto-coleta',
+            iconSize: [6, 6]
+        });
+
+        // 150 pontos na Região Central
+        for (var i = 0; i < 150; i++) {
+            var lat = -25.4284 + (Math.random() - 0.5) * 0.12; 
+            var lng = -49.2733 + (Math.random() - 0.5) * 0.12;
+            L.marker([lat, lng], {icon: iconePonto}).addTo(map);
+        }
+
+        // 120 pontos espalhados por Curitiba e RM
+        for (var i = 0; i < 120; i++) {
+            var lat = -25.4284 + (Math.random() - 0.5) * 0.45; 
+            var lng = -49.2733 + (Math.random() - 0.5) * 0.45;
+            L.marker([lat, lng], {icon: iconePonto}).addTo(map);
+        }
+    </script>
 </body>
 </html>
