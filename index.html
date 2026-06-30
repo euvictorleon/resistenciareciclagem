@@ -522,10 +522,9 @@
         </svg>
     </a>
 
-    <!-- CABEÇALHO ATUALIZADO (PUXANDO A LOGO EM IMAGEM) -->
+    <!-- CABEÇALHO ATUALIZADO -->
     <header>
         <div class="logo-container">
-            <!-- Basta ter o arquivo 'logo-resistencia.png' na mesma pasta do seu site -->
             <img src="logo-resistencia.png" alt="Resistência Reciclagem" class="logo-img">
         </div>
         <a href="https://wa.me/5541998871864" target="_blank" class="btn-header">Falar com Consultor</a>
@@ -592,20 +591,18 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: MAPA DE ATUAÇÃO TECNOLÓGICO -->
+    <!-- MAPA DE ATUAÇÃO TECNOLÓGICO -->
     <section class="mapa-atuacao">
         <div class="section-header">
             <h2>Nossa Logística</h2>
             <p>Atendendo Curitiba e Região Metropolitana com agilidade e inteligência de rotas.</p>
         </div>
         <div class="mapa-container">
-            <!-- Contorno Abstrato Lembra a região de Curitiba -->
             <svg class="svg-contorno" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <path d="M45,5 L85,25 L95,65 L60,95 L15,85 L5,40 Z" fill="none" stroke="#00e676" stroke-width="0.3" stroke-dasharray="2, 2"/>
                 <path d="M50,15 L75,30 L80,60 L55,80 L25,70 L20,35 Z" fill="none" stroke="#00e676" stroke-width="0.1"/>
             </svg>
             
-            <!-- Pontos Gerados Pelo JavaScript no final do arquivo -->
             <div id="luzes-mapa"></div>
 
             <div class="map-overlay-text">
@@ -615,7 +612,7 @@
         </div>
     </section>
 
-    <!-- CARROSSEL DE PARCEIROS (COM AS LOGOS REAIS) -->
+    <!-- CARROSSEL DE PARCEIROS CORRIGIDO -->
     <section id="parceiros" class="parceiros">
         <div class="section-header" style="margin-bottom: 20px;">
             <h2>Grandes Marcas Confiam na Gente</h2>
@@ -625,22 +622,21 @@
         <div class="logos-slider">
             <div class="logos-track">
                 
-                <!-- GRUPO 1 DE LOGOS REAIS (Baseados no seu print) -->
-                <!-- Lembre-se de subir essas imagens no seu GitHub com esses nomes exatos -->
-                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
-                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
-                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
-                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
-                <img src="drive-in-burger.png" alt="Drive in Burger" class="logo-parceiro">
+                <!-- GRUPO 1: NOMES CORRIGIDOS PARA BATER COM O SEU GITHUB -->
+                <img src="alphaville.png.jpg" alt="Alphaville Graciosa" class="logo-parceiro">
+                <img src="parana.png.png" alt="Paraná Clube" class="logo-parceiro">
+                <img src="graciosa..png.png" alt="Graciosa Country Club" class="logo-parceiro">
+                <img src="ligga.png.png" alt="Ligga Telecom" class="logo-parceiro">
+                <img src="drive in burger.png.jpg" alt="Drive in Burger" class="logo-parceiro">
                 <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
                 <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
 
-                <!-- GRUPO 2 DE LOGOS REAIS (Duplicado para o efeito infinito funcionar sem quebras) -->
-                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
-                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
-                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
-                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
-                <img src="drive-in-burger.png" alt="Drive in Burger" class="logo-parceiro">
+                <!-- GRUPO 2: DUPLICADO PARA O EFEITO INFINITO -->
+                <img src="alphaville.png.jpg" alt="Alphaville Graciosa" class="logo-parceiro">
+                <img src="parana.png.png" alt="Paraná Clube" class="logo-parceiro">
+                <img src="graciosa..png.png" alt="Graciosa Country Club" class="logo-parceiro">
+                <img src="ligga.png.png" alt="Ligga Telecom" class="logo-parceiro">
+                <img src="drive in burger.png.jpg" alt="Drive in Burger" class="logo-parceiro">
                 <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
                 <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
 
@@ -655,17 +651,14 @@
         <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.5;">&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT QUE GERA OS PONTOS LUMINOSOS DO MAPA -->
+    <!-- SCRIPT DO MAPA -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const containerMapa = document.getElementById("luzes-mapa");
             
-            // Quantidade de pontos no centro de Curitiba
             const qtdCentro = 150; 
-            // Quantidade de pontos espalhados na Região Metropolitana
             const qtdRM = 50; 
 
-            // Função para concentrar os pontos no miolo (simulando bairros centrais)
             function concentrarNoCentro(min, max) {
                 let u = 0, v = 0;
                 while(u === 0) u = Math.random();
@@ -676,23 +669,18 @@
                 return num * (max - min) + min;
             }
 
-            // Gerando a concentração alta de clientes no Centro
             for (let i = 0; i < qtdCentro; i++) {
                 let ponto = document.createElement("div");
                 ponto.className = "ponto-luz";
-                // Concentra na área central (35% a 65% do container)
                 ponto.style.top = concentrarNoCentro(35, 65) + "%";
                 ponto.style.left = concentrarNoCentro(35, 65) + "%";
-                // Adiciona um delay aleatório para eles não piscarem todos juntos
                 ponto.style.animationDelay = (Math.random() * 2) + "s";
                 containerMapa.appendChild(ponto);
             }
 
-            // Gerando as rotas da Região Metropolitana (Pontos mais afastados e fracos)
             for (let i = 0; i < qtdRM; i++) {
                 let ponto = document.createElement("div");
                 ponto.className = "ponto-luz ponto-secundario";
-                // Espalhados por 15% a 85% do mapa
                 ponto.style.top = (Math.random() * 70 + 15) + "%";
                 ponto.style.left = (Math.random() * 70 + 15) + "%";
                 ponto.style.animationDelay = (Math.random() * 3) + "s";
