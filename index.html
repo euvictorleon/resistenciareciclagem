@@ -63,7 +63,7 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* HEADER GLASSMORPHISM (Efeito Vidro) */
+        /* HEADER GLASSMORPHISM (Voltando pro texto como pedido) */
         header {
             background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
@@ -79,16 +79,16 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
-        /* NOVA CONFIGURAÇÃO DA LOGO DA RESISTÊNCIA */
-        .logo-container {
-            display: flex;
-            align-items: center;
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--preto-chumbo);
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
-        .logo-img {
-            height: 55px; /* Tamanho chique para a logo no topo */
-            width: auto;
-            object-fit: contain;
+        .logo span {
+            color: var(--verde-primario);
         }
 
         .btn-header {
@@ -109,7 +109,7 @@
             color: var(--preto-chumbo);
         }
 
-        /* HERO SECTION - DARK & BOLD */
+        /* HERO SECTION */
         .hero {
             background: linear-gradient(to right, rgba(13,13,15,0.95) 20%, rgba(13,13,15,0.7) 100%), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop') center/cover;
             height: 100vh;
@@ -184,7 +184,7 @@
             color: #fff;
         }
 
-        /* COMO FUNCIONA (O FUNIL DE VENDAS 1-2-3) */
+        /* COMO FUNCIONA */
         .passo-a-passo {
             background-color: var(--cinza-claro);
             padding: 120px 5%;
@@ -269,7 +269,7 @@
             font-size: 1.05rem;
         }
 
-        /* MATERIAIS - GALERIA REALISTA E AGRESSIVA */
+        /* MATERIAIS COLETADOS (Imagens Novas Que Funcionam) */
         .materiais {
             padding: 100px 5%;
             background-color: var(--preto-chumbo);
@@ -332,113 +332,61 @@
             color: var(--verde-destaque);
         }
 
-        /* NOVO: MAPA DE ATUAÇÃO TECNOLÓGICO (CURITIBA E REGIÃO) */
+        /* NOVA SEÇÃO DE LOGÍSTICA (Mapa Elegante e Limpo) */
         .mapa-atuacao {
             padding: 100px 5%;
-            background-color: #050505; /* Fundo extremamente escuro */
+            background: linear-gradient(to bottom, #050505, #0d0d0f);
             color: #fff;
             text-align: center;
-            overflow: hidden;
-            position: relative;
         }
 
         .mapa-atuacao .section-header p {
             color: var(--verde-destaque);
         }
 
-        .mapa-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            height: 550px;
-            margin: 0 auto;
-            background: radial-gradient(circle at center, rgba(0, 230, 118, 0.08) 0%, transparent 60%);
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 50px auto 0;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(0, 230, 118, 0.15);
-            border-radius: 24px;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
-            overflow: hidden;
+            padding: 50px 30px;
+            border-radius: 16px;
+            flex: 1;
+            min-width: 280px;
+            transition: all 0.4s ease;
         }
 
-        /* O contorno geográfico desenhado via código */
-        .svg-contorno {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 85%;
-            height: 85%;
-            opacity: 0.2;
-            z-index: 1;
+        .stat-box:hover {
+            background: rgba(0, 230, 118, 0.05);
+            border-color: var(--verde-destaque);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 230, 118, 0.1);
         }
 
-        /* Container que vai segurar as luzes geradas pelo JavaScript */
-        #luzes-mapa {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-        }
-
-        .ponto-luz {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background-color: var(--verde-destaque);
-            border-radius: 50%;
-            box-shadow: 0 0 12px 3px rgba(0, 230, 118, 0.8);
-            animation: piscarLuz 2.5s infinite alternate;
-        }
-
-        .ponto-secundario {
-            width: 3px;
-            height: 3px;
-            box-shadow: 0 0 6px 1px rgba(0, 230, 118, 0.4);
-            background-color: rgba(0, 230, 118, 0.6);
-            animation: piscarLuzSecundaria 4s infinite alternate;
-        }
-
-        @keyframes piscarLuz {
-            0% { opacity: 0.2; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.4); }
-        }
-
-        @keyframes piscarLuzSecundaria {
-            0% { opacity: 0.1; }
-            100% { opacity: 0.7; }
-        }
-
-        .map-overlay-text {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            text-align: left;
-            z-index: 3;
-        }
-        .map-overlay-text h4 {
-            font-size: 1.8rem;
+        .stat-box h3 {
+            font-size: 3.5rem;
             font-weight: 900;
-            color: #fff;
-            margin-bottom: 5px;
+            color: var(--verde-destaque);
+            margin-bottom: 10px;
+            line-height: 1;
         }
-        .map-overlay-text p {
-            color: #cbd5e1;
-            font-size: 0.9rem;
+
+        .stat-box p {
+            color: var(--texto-claro);
+            font-size: 1.1rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .status-dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: var(--verde-destaque);
-            border-radius: 50%;
-            margin-right: 8px;
-            box-shadow: 0 0 10px var(--verde-destaque);
-        }
 
-        /* CARROSSEL DE PARCEIROS COM AS SUAS LOGOS REAIS */
+        /* CARROSSEL DE PARCEIROS */
         .parceiros {
             padding: 100px 5%;
             background-color: #fff;
@@ -474,7 +422,7 @@
         }
 
         .logo-parceiro {
-            height: 60px; /* Tamanho ajustado para caber marcas reais perfeitamente */
+            height: 60px;
             object-fit: contain;
             filter: grayscale(100%) opacity(0.6);
             transition: all 0.4s ease;
@@ -509,7 +457,7 @@
             .btn-header { display: none; }
             .logos-track { gap: 50px; }
             .logo-parceiro { height: 45px; }
-            .mapa-container { height: 350px; }
+            .stat-box { min-width: 100%; }
         }
     </style>
 </head>
@@ -522,11 +470,9 @@
         </svg>
     </a>
 
-    <!-- CABEÇALHO ATUALIZADO -->
+    <!-- CABEÇALHO (Voltou para o texto) -->
     <header>
-        <div class="logo-container">
-            <img src="logo-resistencia.png" alt="Resistência Reciclagem" class="logo-img">
-        </div>
+        <div class="logo">Resistência<span>Reciclagem</span></div>
         <a href="https://wa.me/5541998871864" target="_blank" class="btn-header">Falar com Consultor</a>
     </header>
 
@@ -565,7 +511,7 @@
         </div>
     </section>
 
-    <!-- MATERIAIS COLETADOS -->
+    <!-- MATERIAIS COLETADOS (Links Novos e Funcionando) -->
     <section id="materiais" class="materiais">
         <div class="section-header">
             <h2>O Que Coletamos</h2>
@@ -573,7 +519,7 @@
         </div>
         <div class="grid-materiais">
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1605600659908-0bef71b4c731?q=80&w=800&auto=format&fit=crop" alt="Papelão">
+                <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807?q=80&w=800&auto=format&fit=crop" alt="Papelão">
                 <div class="nome-material">Papel e Papelão</div>
             </div>
             <div class="card-material">
@@ -581,7 +527,7 @@
                 <div class="nome-material">Metais</div>
             </div>
             <div class="card-material">
-                <img src="https://images.unsplash.com/photo-1579899321745-6677935de9da?q=80&w=800&auto=format&fit=crop" alt="Vidros">
+                <img src="https://images.unsplash.com/photo-1517420879524-86d64ac2f339?q=80&w=800&auto=format&fit=crop" alt="Vidros">
                 <div class="nome-material">Vidros</div>
             </div>
             <div class="card-material">
@@ -591,28 +537,30 @@
         </div>
     </section>
 
-    <!-- MAPA DE ATUAÇÃO TECNOLÓGICO -->
+    <!-- SEÇÃO LOGÍSTICA SUBSTITUINDO O MAPA ESTRANHO -->
     <section class="mapa-atuacao">
         <div class="section-header">
             <h2>Nossa Logística</h2>
             <p>Atendendo Curitiba e Região Metropolitana com agilidade e inteligência de rotas.</p>
         </div>
-        <div class="mapa-container">
-            <svg class="svg-contorno" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M45,5 L85,25 L95,65 L60,95 L15,85 L5,40 Z" fill="none" stroke="#00e676" stroke-width="0.3" stroke-dasharray="2, 2"/>
-                <path d="M50,15 L75,30 L80,60 L55,80 L25,70 L20,35 Z" fill="none" stroke="#00e676" stroke-width="0.1"/>
-            </svg>
-            
-            <div id="luzes-mapa"></div>
-
-            <div class="map-overlay-text">
-                <h4><span class="status-dot"></span>+200 Pontos</h4>
-                <p>Coletas Ativas Diárias</p>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>+200</h3>
+                <p>Pontos de Coleta Ativos</p>
+            </div>
+            <div class="stat-box">
+                <h3>24h</h3>
+                <p>Suporte e Monitoramento</p>
+            </div>
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Adequação Ambiental</p>
             </div>
         </div>
     </section>
 
-    <!-- CARROSSEL DE PARCEIROS CORRIGIDO -->
+    <!-- CARROSSEL DE PARCEIROS (Nomes Corrigidos) -->
     <section id="parceiros" class="parceiros">
         <div class="section-header" style="margin-bottom: 20px;">
             <h2>Grandes Marcas Confiam na Gente</h2>
@@ -622,21 +570,21 @@
         <div class="logos-slider">
             <div class="logos-track">
                 
-                <!-- GRUPO 1: NOMES CORRIGIDOS PARA BATER COM O SEU GITHUB -->
-                <img src="alphaville.png.jpg" alt="Alphaville Graciosa" class="logo-parceiro">
-                <img src="parana.png.png" alt="Paraná Clube" class="logo-parceiro">
-                <img src="graciosa..png.png" alt="Graciosa Country Club" class="logo-parceiro">
-                <img src="ligga.png.png" alt="Ligga Telecom" class="logo-parceiro">
-                <img src="drive in burger.png.jpg" alt="Drive in Burger" class="logo-parceiro">
+                <!-- GRUPO 1: ATENÇÃO AOS NOMES AQUI -->
+                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
+                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
+                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
+                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
+                <img src="burger.png" alt="Drive in Burger" class="logo-parceiro">
                 <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
                 <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
 
-                <!-- GRUPO 2: DUPLICADO PARA O EFEITO INFINITO -->
-                <img src="alphaville.png.jpg" alt="Alphaville Graciosa" class="logo-parceiro">
-                <img src="parana.png.png" alt="Paraná Clube" class="logo-parceiro">
-                <img src="graciosa..png.png" alt="Graciosa Country Club" class="logo-parceiro">
-                <img src="ligga.png.png" alt="Ligga Telecom" class="logo-parceiro">
-                <img src="drive in burger.png.jpg" alt="Drive in Burger" class="logo-parceiro">
+                <!-- GRUPO 2: DUPLICADO PARA EFEITO INFINITO -->
+                <img src="alphaville.png" alt="Alphaville Graciosa" class="logo-parceiro">
+                <img src="parana.png" alt="Paraná Clube" class="logo-parceiro">
+                <img src="graciosa.png" alt="Graciosa Country Club" class="logo-parceiro">
+                <img src="ligga.png" alt="Ligga Telecom" class="logo-parceiro">
+                <img src="burger.png" alt="Drive in Burger" class="logo-parceiro">
                 <img src="FAMILIA-FARINHA-1024x360.png" alt="Família Farinha" class="logo-parceiro">
                 <img src="vivo-120.png" alt="Vivo" class="logo-parceiro">
 
@@ -651,42 +599,5 @@
         <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.5;">&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT DO MAPA -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const containerMapa = document.getElementById("luzes-mapa");
-            
-            const qtdCentro = 150; 
-            const qtdRM = 50; 
-
-            function concentrarNoCentro(min, max) {
-                let u = 0, v = 0;
-                while(u === 0) u = Math.random();
-                while(v === 0) v = Math.random();
-                let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
-                num = num / 10.0 + 0.5; 
-                if (num > 1 || num < 0) return concentrarNoCentro(min, max); 
-                return num * (max - min) + min;
-            }
-
-            for (let i = 0; i < qtdCentro; i++) {
-                let ponto = document.createElement("div");
-                ponto.className = "ponto-luz";
-                ponto.style.top = concentrarNoCentro(35, 65) + "%";
-                ponto.style.left = concentrarNoCentro(35, 65) + "%";
-                ponto.style.animationDelay = (Math.random() * 2) + "s";
-                containerMapa.appendChild(ponto);
-            }
-
-            for (let i = 0; i < qtdRM; i++) {
-                let ponto = document.createElement("div");
-                ponto.className = "ponto-luz ponto-secundario";
-                ponto.style.top = (Math.random() * 70 + 15) + "%";
-                ponto.style.left = (Math.random() * 70 + 15) + "%";
-                ponto.style.animationDelay = (Math.random() * 3) + "s";
-                containerMapa.appendChild(ponto);
-            }
-        });
-    </script>
 </body>
 </html>
