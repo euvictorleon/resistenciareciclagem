@@ -107,7 +107,7 @@
             background-color: var(--verde-primario); 
         }
 
-        /* Hero com vídeo de fundo atualizado */
+        /* Hero com vídeo de fundo LOCAL */
         section.hero {
             position: relative; 
             height: 100vh; 
@@ -185,7 +185,7 @@
             color: #000;
         }
 
-        /* Seção Segmentos - Comércios em Geral */
+        /* Seção Segmentos */
         section.segmentos {
             padding: 60px 5%; 
             background: #fff; 
@@ -307,7 +307,7 @@
             z-index: 10;
         }
 
-        /* Linha do tempo (metodologia) MAIS DINÂMICA */
+        /* Metodologia */
         section.metodologia {
             padding: 100px 5%; 
             background: #fff; 
@@ -386,7 +386,6 @@
             line-height: 1.4; 
         }
 
-        /* Animação do caminhãozinho */
         .truck-anim {
             animation: drive 2.5s infinite alternate ease-in-out;
         }
@@ -431,9 +430,7 @@
             background: #0d0d0f; 
         }
 
-        /* ==================================================== */
-        /* CERTIFICAÇÕES (ESTILO DARK/GREEN)                    */
-        /* ==================================================== */
+        /* Certificações */
         section.certificacoes {
             padding: 100px 5%;
             background-color: var(--cinza-escuro); 
@@ -510,7 +507,7 @@
             line-height: 1.5;
         }
 
-        /* Sustentabilidade - NOVO DESIGN (Glassmorphism e Impacto) */
+        /* Sustentabilidade */
         section.sustentabilidade {
             padding: 120px 5%;
             background: url('fardos.jpg') no-repeat center/cover fixed; 
@@ -583,7 +580,7 @@
             letter-spacing: 1px; 
         }
 
-        /* Parceiros/carrossel infinito */
+        /* Parceiros */
         section.parceiros {
             padding: 80px 5%; 
             background: #fff; 
@@ -670,7 +667,7 @@
             opacity: 1; 
         }
 
-        /* BADGE AJUSTADO - Flutuando bonito sobre a logo */
+        /* BADGE Flutuando bonito sobre a logo */
         .badge-unidades {
             position: absolute;
             top: -15px;
@@ -748,7 +745,6 @@
             margin-bottom: 5px;
         }
 
-        /* Mapa no rodapé (Iframe do Google) */
         .footer-mapa iframe {
             width: 100%;
             height: 150px;
@@ -793,11 +789,11 @@
         <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO com VÍDEO ONLINE DE ALTA DISPONIBILIDADE -->
+    <!-- HERO com VÍDEO LOCAL (Sua solução definitiva) -->
     <section class="hero">
-        <!-- Vídeo CDN público do Coverr (100% online e gratuito) -->
-        <video class="hero-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1600&q=80">
-            <source src="https://cdn.coverr.co/videos/coverr-driving-through-a-forest-5144/1080p.mp4" type="video/mp4" />
+        <!-- O código agora chama um arquivo que vai estar no seu GitHub chamado "video.mp4" -->
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="video.mp4" type="video/mp4" />
         </video>
         <div class="content">
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
@@ -806,7 +802,6 @@
         </div>
     </section>
 
-    <!-- Seção Segmentos - Comércios em Geral -->
     <section class="segmentos">
         <div class="banner">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -854,7 +849,6 @@
         </div>
     </section>
 
-    <!-- Linha do tempo (COM ÍCONES E CAMINHÃO ANIMADO) -->
     <section class="metodologia">
         <h2>Como Funciona</h2>
         <div class="timeline">
@@ -881,7 +875,6 @@
         </div>
     </section>
 
-    <!-- Mapa Leaflet de Atuação -->
     <section class="mapa-atuacao">
         <h2>Nossa Logística</h2>
         <p>Atendendo Curitiba e Região Metropolitana com inteligência de rotas.</p>
@@ -890,9 +883,6 @@
         </div>
     </section>
 
-    <!-- ============================================== -->
-    <!-- CERTIFICAÇÕES (NOVA SEÇÃO COM O CDF)           -->
-    <!-- ============================================== -->
     <section class="certificacoes">
         <div class="cert-header">
             <h5>CERTIFICAÇÕES</h5>
@@ -930,7 +920,6 @@
         </div>
     </section>
 
-    <!-- Sustentabilidade PREMIUM (Glassmorphism) -->
     <section class="sustentabilidade">
         <div class="glass-card">
             <h2>Nosso Propósito</h2>
@@ -953,7 +942,7 @@
         </div>
     </section>
 
-    <!-- Parceiros com Badge e Imagem Placeholder Provisória -->
+    <!-- PARCEIROS CORRIGIDOS -->
     <section class="parceiros">
         <h2>Grandes marcas confiam na gente</h2>
         <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
@@ -966,26 +955,31 @@
                     <div class="logo-item"><img src="vivo.png" alt="Vivo" /></div>
                     <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa" /></div>
                     <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger" /></div>
-                    <!-- Imagem temporária online para preencher o vazio. Troque o src para "bardoacougueiro.png" quando tiver a foto -->
+                    
+                    <!-- Aqui estava o erro! Puxando o nome exato agora -->
                     <div class="logo-item">
                         <span class="badge-unidades">3 UNIDADES</span>
-                        <img src="https://via.placeholder.com/160x60/f8fafc/0d0d0f?text=Bar+do+Acougueiro" alt="O Bar do Açougueiro" />
+                        <img src="bar-do-acougueiro.png" alt="O Bar do Açougueiro" />
                     </div>
+
                     <div class="logo-item"><img src="familiafarinha.png" alt="Família Farinha" /></div>
                     <div class="logo-item"><img src="graciosa.png" alt="Graciosa" /></div>
                     <div class="logo-item"><img src="parana.png" alt="Paraná"></div>
                 </div>
-                <!-- Duplicado para infinito -->
+                
+                <!-- Duplicado para infinito (Precisa repetir a alteração aqui também) -->
                 <div class="logos-slide">
                     <div class="logo-item"><img src="ligga.png" alt="Ligga Telecom" /></div>
                     <div class="logo-item"><img src="vivo.png" alt="Vivo" /></div>
                     <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa" /></div>
                     <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger" /></div>
-                    <!-- Imagem temporária replicada -->
+                    
+                    <!-- Alterado aqui também -->
                     <div class="logo-item">
                         <span class="badge-unidades">3 UNIDADES</span>
-                        <img src="https://via.placeholder.com/160x60/f8fafc/0d0d0f?text=Bar+do+Acougueiro" alt="O Bar do Açougueiro" />
+                        <img src="bar-do-acougueiro.png" alt="O Bar do Açougueiro" />
                     </div>
+
                     <div class="logo-item"><img src="familiafarinha.png" alt="Família Farinha" /></div>
                     <div class="logo-item"><img src="graciosa.png" alt="Graciosa" /></div>
                     <div class="logo-item"><img src="parana.png" alt="Paraná"></div>
@@ -994,7 +988,6 @@
         </div>
     </section>
 
-    <!-- Rodapé com endereço atualizado e NOVO MAPA -->
     <footer>
         <div class="footer-grid">
             <div>
@@ -1009,7 +1002,6 @@
                 </div>
             </div>
 
-            <!-- Mapa pequeno apontando para o novo endereço -->
             <div class="footer-mapa">
                 <iframe src="https://maps.google.com/maps?q=R.+Juarez+Bertolini,+363+-+Cidade+Industrial+de+Curitiba,+Curitiba+-+PR,+81270-052&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -1019,7 +1011,7 @@
         </div>
     </footer>
 
-    <!-- Scripts para o mapa de logística (Leaflet) -->
+    <!-- Scripts do Mapa -->
     <script>
         var map = L.map('map', {
             center: [-25.4284, -49.2733],
@@ -1032,21 +1024,13 @@
             attribution: '' 
         }).addTo(map);
 
-        var stylePin = {
-            radius: 4, 
-            fillColor: "#00e676", 
-            color: "#00e676", 
-            weight: 1, 
-            opacity: 1, 
-            fillOpacity: 0.8 
-        };
+        var stylePin = { radius: 4, fillColor: "#00e676", color: "#00e676", weight: 1, opacity: 1, fillOpacity: 0.8 };
 
         for (var i=0; i<150; i++) {
             var lat = -25.4284 + (Math.random()-0.5)*0.12;
             var lng = -49.2733 + (Math.random()-0.5)*0.12;
             L.circleMarker([lat,lng], stylePin).addTo(map);
         }
-
         for (var i=0; i<120; i++) {
             var lat = -25.4284 + (Math.random()-0.5)*0.45;
             var lng = -49.2733 + (Math.random()-0.5)*0.45;
