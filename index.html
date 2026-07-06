@@ -431,16 +431,16 @@
         }
 
         /* ==================================================== */
-        /* CERTIFICAÇÕES (NOVA SEÇÃO ADICIONADA COM CDF) */
+        /* CERTIFICAÇÕES (ATUALIZADO PARA ESTILO DARK/GREEN)    */
         /* ==================================================== */
         section.certificacoes {
             padding: 100px 5%;
-            background-color: var(--cinza-claro);
+            background-color: var(--cinza-escuro); /* Fundo cinza escuro */
             text-align: center;
         }
 
         .cert-header h5 {
-            color: #1a56b8; /* Azul estilo certificação */
+            color: var(--verde-destaque); /* Verde vivo */
             font-size: 0.95rem;
             font-weight: 800;
             letter-spacing: 2px;
@@ -451,7 +451,7 @@
         .cert-header h2 {
             font-size: 2.5rem;
             font-weight: 900;
-            color: var(--preto-chumbo);
+            color: #fff; /* Título em branco */
             margin-bottom: 50px;
             line-height: 1.2;
         }
@@ -465,26 +465,29 @@
         }
 
         .cert-card {
-            background: #fff;
+            background: var(--preto-chumbo); /* Fundo do card no tom chumbo */
             padding: 40px 20px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.05); /* Borda fina para destacar sutilmente */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); /* Sombra mais profunda */
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .cert-card:hover {
             transform: translateY(-8px);
+            border-color: var(--verde-primario); /* Borda fica verde no hover */
         }
 
         .cert-icon {
             width: 60px;
             height: 60px;
-            background: #1a56b8;
+            background: var(--verde-primario); /* Ícones com o verde do botão */
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0, 138, 75, 0.3); /* Sombrinha verde pra dar brilho */
         }
 
         .cert-icon svg {
@@ -496,13 +499,13 @@
         .cert-card h4 {
             font-size: 1.2rem;
             font-weight: 800;
-            color: var(--preto-chumbo);
+            color: #fff; /* Títulos dos cards em branco */
             margin-bottom: 10px;
         }
 
         .cert-card p {
             font-size: 0.95rem;
-            color: #64748b;
+            color: var(--texto-claro); /* Texto cinza clarinho */
             line-height: 1.5;
         }
 
@@ -1049,4 +1052,3 @@
     </script>
 </body>
 </html>
-
