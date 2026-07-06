@@ -107,7 +107,7 @@
             background-color: var(--verde-primario); 
         }
 
-        /* Hero com vídeo de fundo LOCAL */
+        /* Hero */
         section.hero {
             position: relative; 
             height: 100vh; 
@@ -116,16 +116,6 @@
             padding-top: 80px; 
             overflow: hidden;
             background-color: #000; 
-        }
-
-        .hero video.hero-video {
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            z-index: -2;
         }
 
         .hero:before {
@@ -789,12 +779,11 @@
         <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO com VÍDEO LOCAL (Sua solução definitiva) -->
+    <!-- HERO com IMAGEM LOCAL (Substituindo o vídeo) -->
     <section class="hero">
-        <!-- O código agora chama um arquivo que vai estar no seu GitHub chamado "video.mp4" -->
-        <video class="hero-video" autoplay loop muted playsinline>
-            <source src="video.mp4" type="video/mp4" />
-        </video>
+        <!-- A imagem abaixo substitui o vídeo temporariamente -->
+        <img src="reci.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;" alt="Fundo da página">
+        
         <div class="content">
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
             <p>Adequação ambiental e logística eficiente para indústrias, restaurantes e comércios em toda Curitiba e RMC.</p>
@@ -956,7 +945,6 @@
                     <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa" /></div>
                     <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger" /></div>
                     
-                    <!-- Aqui estava o erro! Puxando o nome exato agora -->
                     <div class="logo-item">
                         <span class="badge-unidades">3 UNIDADES</span>
                         <img src="bar-do-acougueiro.png" alt="O Bar do Açougueiro" />
@@ -967,14 +955,13 @@
                     <div class="logo-item"><img src="parana.png" alt="Paraná"></div>
                 </div>
                 
-                <!-- Duplicado para infinito (Precisa repetir a alteração aqui também) -->
+                <!-- Duplicado para infinito -->
                 <div class="logos-slide">
                     <div class="logo-item"><img src="ligga.png" alt="Ligga Telecom" /></div>
                     <div class="logo-item"><img src="vivo.png" alt="Vivo" /></div>
                     <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa" /></div>
                     <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger" /></div>
                     
-                    <!-- Alterado aqui também -->
                     <div class="logo-item">
                         <span class="badge-unidades">3 UNIDADES</span>
                         <img src="bar-do-acougueiro.png" alt="O Bar do Açougueiro" />
@@ -1039,5 +1026,4 @@
     </script>
 </body>
 </html>
-
 
