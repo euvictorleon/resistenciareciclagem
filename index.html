@@ -115,7 +115,8 @@
             align-items: center; 
             padding-top: 80px; 
             overflow: hidden;
-            background-color: #000; 
+            /* AQUI ESTÁ A CORREÇÃO: A imagem vai direto no fundo pelo CSS */
+            background: url('https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
         }
 
         .hero:before {
@@ -125,8 +126,9 @@
             left: 0; 
             width: 100%; 
             height: 100%; 
+            /* Esta camada cria o efeito escuro sobre a foto */
             background: linear-gradient(to right, rgba(13,13,15,0.95) 20%, rgba(13,13,15,0.6) 100%); 
-            z-index: -1;
+            z-index: 0;
         }
 
         .hero .content {
@@ -779,10 +781,8 @@
         <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO com IMAGEM EXTERNA (Substituindo reci.png por uma foto fera da web) -->
+    <!-- HERO (A imagem agora está no CSS e não no HTML) -->
     <section class="hero">
-        <img src="https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;" alt="Fundo da página">
-        
         <div class="content">
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
             <p>Adequação ambiental e logística eficiente para indústrias, restaurantes e comércios em toda Curitiba e RMC.</p>
@@ -1025,5 +1025,4 @@
     </script>
 </body>
 </html>
-
 
