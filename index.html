@@ -95,20 +95,48 @@
             font-weight: 800;
             font-size: 0.85rem;
             text-transform: uppercase;
+            transition: 0.3s;
+        }
+        
+        .btn-header:hover {
+            background-color: var(--verde-primario);
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION COM VÍDEO */
         .hero {
-            background: linear-gradient(to right, rgba(13,13,15,0.95) 20%, rgba(13,13,15,0.7) 100%), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop') center/cover;
+            position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
             padding: 0 5%;
             padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(13,13,15,0.95) 20%, rgba(13,13,15,0.6) 100%);
+            z-index: -1;
         }
 
         .hero-content {
             max-width: 750px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -140,9 +168,81 @@
             border-radius: 8px;
             text-transform: uppercase;
             display: inline-block;
+            transition: 0.3s;
         }
 
-        /* MATERIAIS - AGORA PUXANDO SUAS FOTOS LOCAIS */
+        .btn-principal:hover {
+            background: var(--verde-destaque);
+            transform: translateY(-3px);
+        }
+
+        /* NOVA SEÇÃO: SEGMENTOS */
+        .segmentos {
+            padding: 60px 5%;
+            background-color: #fff;
+            position: relative;
+            margin-top: -30px;
+            z-index: 10;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+        }
+
+        .banner-folha {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .banner-folha svg {
+            width: 35px;
+            height: 35px;
+            fill: var(--verde-primario);
+        }
+
+        .banner-folha h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--preto-chumbo);
+            text-transform: uppercase;
+        }
+
+        .grid-segmentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card-segmento {
+            background: var(--cinza-claro);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--verde-primario);
+            transition: 0.3s;
+        }
+
+        .card-segmento:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-segmento h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--preto-chumbo);
+        }
+
+        .card-segmento p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* MATERIAIS */
         .materiais {
             padding: 100px 5%;
             background-color: var(--preto-chumbo);
@@ -183,6 +283,7 @@
 
         .card-material:hover img {
             filter: brightness(0.4);
+            transform: scale(1.05);
         }
 
         .nome-material {
@@ -194,6 +295,77 @@
             font-weight: 900;
             text-transform: uppercase;
             z-index: 10;
+        }
+
+        /* NOVA SEÇÃO: METODOLOGIA (TIMELINE) */
+        .metodologia {
+            padding: 100px 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .metodologia h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--preto-chumbo);
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #e2e8f0;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 150px;
+        }
+
+        .dot {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: 4px solid var(--verde-primario);
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            transition: 0.3s;
+        }
+
+        .step:hover .dot {
+            background-color: var(--verde-primario);
+            box-shadow: 0 0 15px rgba(0, 138, 75, 0.5);
+            transform: scale(1.1);
+        }
+
+        .step h4 {
+            font-weight: 800;
+            color: var(--preto-chumbo);
+            margin-bottom: 5px;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            color: #64748b;
         }
 
         /* MAPA DE LOGÍSTICA */
@@ -232,6 +404,48 @@
             z-index: 1;
         }
 
+        /* NOVA SEÇÃO: SUSTENTABILIDADE (PARALLAX) */
+        .sustentabilidade {
+            height: 400px;
+            /* Troque fardos.jpg pela sua imagem real de fardos */
+            background: url('fardos.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Isso cria o efeito Parallax */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .sustentabilidade-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(13, 13, 15, 0.8);
+        }
+
+        .sustentabilidade-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 800px;
+            padding: 0 5%;
+        }
+
+        .sustentabilidade-content h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--verde-destaque);
+            margin-bottom: 20px;
+        }
+
+        .sustentabilidade-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--texto-claro);
+        }
+
         /* PARCEIROS / CARROSSEL INFINITO */
         .parceiros {
             padding: 80px 5%;
@@ -261,7 +475,6 @@
             white-space: nowrap;
         }
 
-        /* Efeito de fade branco nas laterais do carrossel */
         .carousel-container::before, 
         .carousel-container::after {
             content: "";
@@ -287,17 +500,24 @@
         }
 
         .logos-track:hover {
-            animation-play-state: paused; /* Pausa ao passar o mouse */
+            animation-play-state: paused; 
         }
 
         .logos-slide {
             display: flex;
             align-items: center;
-            gap: 70px; /* Espaço entre as logos */
-            padding-right: 70px; /* Importante para não quebrar a transição */
+            gap: 70px; 
+            padding-right: 70px; 
         }
 
-        .logos-slide img {
+        .logo-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-item img {
             max-height: 50px;
             max-width: 160px;
             object-fit: contain;
@@ -306,9 +526,26 @@
             transition: 0.3s;
         }
 
-        .logos-slide img:hover {
+        .logo-item:hover img {
             filter: grayscale(0%);
             opacity: 1;
+        }
+
+        /* BADGE DO AÇOUGUEIRO */
+        .badge-unidades {
+            position: absolute;
+            top: -15px;
+            right: -25px;
+            background-color: var(--verde-primario);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 4px 8px;
+            border-radius: 12px;
+            border: 2px solid #fff;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 5;
         }
 
         @keyframes scroll-logos {
@@ -316,16 +553,79 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* FOOTER */
+        /* FOOTER MODERNIZADO */
         footer {
-            background-color: #000;
+            background-color: #050505;
             color: #64748b;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #1a1a1e;
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .footer-logo span {
+            color: var(--verde-primario);
+        }
+
+        .footer-endereco {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-pin {
+            width: 40px;
+            height: 40px;
+            background-color: var(--cinza-escuro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--verde-destaque);
+            font-size: 1.2rem;
+        }
+
+        .footer-endereco p {
+            color: var(--texto-claro);
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .footer-endereco strong {
+            display: block;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .footer-copy {
             text-align: center;
-            padding: 50px 5%;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
+            .timeline::before { display: none; }
+            .timeline { flex-direction: column; gap: 40px; }
+            .footer-grid { flex-direction: column; text-align: center; }
+            .footer-endereco { flex-direction: column; }
             #map { height: 400px; }
             .logos-slide img { max-width: 120px; }
         }
@@ -344,8 +644,14 @@
         <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO COM VÍDEO -->
     <section class="hero">
+        <!-- Coleque o seu vídeo na mesma pasta e nomeie como video-fundo.mp4 -->
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="video-fundo.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
         <div class="hero-content">
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
             <p>Adequação ambiental e logística eficiente para indústrias, restaurantes e condomínios em toda Curitiba.</p>
@@ -353,7 +659,32 @@
         </div>
     </section>
 
-    <!-- MATERIAIS (CÓDIGO PUXANDO SUAS FOTOS) -->
+    <!-- NOVA SEÇÃO: SEGMENTOS -->
+    <section class="segmentos">
+        <div class="banner-folha">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17 8C8 10 5.9 16.171 5.01 20.259 4.908 20.727 5.437 21.05 5.82 20.75 6.643 20.106 8.358 18.9 11 18c.846 1.583 2.274 3 4.5 3 3.59 0 6.5-2.91 6.5-6.5C22 10.91 19 8 17 8zm-2 9c-1.397 0-2.528-.809-3.116-2H14c.552 0 1-.448 1-1s-.448-1-1-1h-2.637c.394-1.385 1.258-2.684 2.637-3.666V11c0 .552.448 1 1 1s1-.448 1-1v-1.127c1.464.332 2.68 1.417 3.324 2.877H17c-.552 0-1 .448-1 1s.448 1 1 1h1.865c-.17 1.638-1.543 2.95-3.23 3.109l-.135.014V16c0-.552-.448-1-1-1s-1 .448-1 1v1z"/>
+            </svg>
+            <h3>Sustentabilidade para cada setor</h3>
+        </div>
+        
+        <div class="grid-segmentos">
+            <div class="card-segmento">
+                <h4>Indústrias</h4>
+                <p>Gestão de resíduos de grande volume, garantindo o descarte correto de plásticos, metais e sucatas com laudo ambiental.</p>
+            </div>
+            <div class="card-segmento">
+                <h4>Bares & Restaurantes</h4>
+                <p>Coleta ágil e programada de embalagens, vidros e garrafas para manter o fluxo do seu estabelecimento sem acúmulo de lixo.</p>
+            </div>
+            <div class="card-segmento">
+                <h4>Condomínios</h4>
+                <p>Organização e coleta inteligente, transformando o resíduo dos moradores em ação ambiental que valoriza o empreendimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATERIAIS INTACTOS -->
     <section class="materiais">
         <h2>O Que Coletamos</h2>
         <div class="grid-materiais">
@@ -376,7 +707,34 @@
         </div>
     </section>
 
-    <!-- MAPA DE CURITIBA -->
+    <!-- NOVA SEÇÃO: METODOLOGIA -->
+    <section class="metodologia">
+        <h2>Como Funciona</h2>
+        <div class="timeline">
+            <div class="step">
+                <div class="dot"></div>
+                <h4>1. Avaliação</h4>
+                <p>Entendemos o volume e tipo de resíduo gerado pelo seu negócio.</p>
+            </div>
+            <div class="step">
+                <div class="dot"></div>
+                <h4>2. Planejamento</h4>
+                <p>Desenhamos a logística e frequência ideal de recolhimento.</p>
+            </div>
+            <div class="step">
+                <div class="dot"></div>
+                <h4>3. Coleta</h4>
+                <p>Nossa frota retira o material no seu endereço com agilidade.</p>
+            </div>
+            <div class="step">
+                <div class="dot"></div>
+                <h4>4. Destinação</h4>
+                <p>Triagem, processamento e envio para reciclagem certificada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA DE CURITIBA INTACTO -->
     <section class="mapa-atuacao">
         <h2>Nossa Logística</h2>
         <p>Atendendo Curitiba e Região Metropolitana com inteligência de rotas.</p>
@@ -386,7 +744,16 @@
         </div>
     </section>
 
-    <!-- PARCEIROS (CARROSSEL ANIMADO) -->
+    <!-- NOVA SEÇÃO: SUSTENTABILIDADE PARALLAX -->
+    <section class="sustentabilidade">
+        <div class="sustentabilidade-overlay"></div>
+        <div class="sustentabilidade-content">
+            <h2>Compromisso Ambiental</h2>
+            <p>Mais do que recolher materiais, nossa missão é garantir que toneladas de resíduos voltem para a cadeia produtiva, reduzindo o impacto no meio ambiente e construindo um futuro mais limpo para todos.</p>
+        </div>
+    </section>
+
+    <!-- PARCEIROS (COM BADGE NO BAR DO AÇOUGUEIRO) -->
     <section class="parceiros">
         <h2>Grandes marcas confiam na gente</h2>
         <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
@@ -395,33 +762,58 @@
             <div class="logos-track">
                 <!-- GRUPO 1 DE LOGOS -->
                 <div class="logos-slide">
-                    <img src="ligga.png" alt="Ligga Telecom">
-                    <img src="vivo.png" alt="Vivo">
-                    <img src="alphaville.png" alt="Alphaville Graciosa">
-                    <img src="drive in burger.png" alt="Drive in Burger">
-                    <img src="familiafarinha.png" alt="Família Farinha">
-                    <img src="graciosa.png" alt="Graciosa">
-                    <img src="parana.png" alt="Paraná">
+                    <div class="logo-item"><img src="ligga.png" alt="Ligga Telecom"></div>
+                    <div class="logo-item"><img src="vivo.png" alt="Vivo"></div>
+                    <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa"></div>
+                    <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger"></div>
+                    
+                    <!-- BAR DO AÇOUGUEIRO COM BADGE -->
+                    <div class="logo-item">
+                        <span class="badge-unidades">3 UNIDADES</span>
+                        <img src="bardoacougueiro.png" alt="O Bar do Açougueiro">
+                    </div>
+
+                    <div class="logo-item"><img src="familiafarinha.png" alt="Família Farinha"></div>
+                    <div class="logo-item"><img src="graciosa.png" alt="Graciosa"></div>
+                    <div class="logo-item"><img src="parana.png" alt="Paraná"></div>
                 </div>
                 
-                <!-- GRUPO 2 DE LOGOS (DUPLICADO PARA O CARROSSEL SER INFINITO) -->
+                <!-- GRUPO 2 DE LOGOS (DUPLICADO) -->
                 <div class="logos-slide">
-                    <img src="ligga.png" alt="Ligga Telecom">
-                    <img src="vivo.png" alt="Vivo">
-                    <img src="alphaville.png" alt="Alphaville Graciosa">
-                    <img src="drive in burger.png" alt="Drive in Burger">
-                    <img src="familiafarinha.png" alt="Família Farinha">
-                    <img src="graciosa.png" alt="Graciosa">
-                    <img src="parana.png" alt="Paraná">
+                    <div class="logo-item"><img src="ligga.png" alt="Ligga Telecom"></div>
+                    <div class="logo-item"><img src="vivo.png" alt="Vivo"></div>
+                    <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa"></div>
+                    <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger"></div>
+                    
+                    <div class="logo-item">
+                        <span class="badge-unidades">3 UNIDADES</span>
+                        <img src="bardoacougueiro.png" alt="O Bar do Açougueiro">
+                    </div>
+
+                    <div class="logo-item"><img src="familiafarinha.png" alt="Família Farinha"></div>
+                    <div class="logo-item"><img src="graciosa.png" alt="Graciosa"></div>
+                    <div class="logo-item"><img src="parana.png" alt="Paraná"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER MODERNIZADO COM ENDEREÇO -->
     <footer>
-        <h2>Resistência Reciclagem</h2>
-        <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados.</p>
+        <div class="footer-grid">
+            <div class="footer-logo">Resistência<span>Reciclagem</span></div>
+            
+            <div class="footer-endereco">
+                <div class="icon-pin">📍</div>
+                <div>
+                    <strong>Nossa Sede</strong>
+                    <p>Rua Joares Bertolini, 363<br>Curitiba, PR</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2024 Resistência Reciclagem. Todos os direitos reservados. Compromisso com o meio ambiente.</p>
+        </div>
     </footer>
 
     <!-- SCRIPT DO MAPA -->
