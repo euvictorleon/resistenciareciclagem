@@ -115,6 +115,7 @@
             align-items: center; 
             padding-top: 80px; 
             overflow: hidden;
+            background-color: #000; /* Fundo escuro enquanto o vídeo carrega */
         }
 
         .hero video.hero-video {
@@ -792,11 +793,12 @@
         <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO com vídeo (Basta colocar o arquivo de vídeo na pasta do site) -->
+    <!-- HERO com VÍDEO ONLINE EMBUTIDO -->
     <section class="hero">
-        <video class="hero-video" autoplay loop muted playsinline>
-            <!-- Substitua "seu-video-aqui.mp4" pelo nome exato do seu arquivo de vídeo local -->
-            <source src="seu-video-aqui.mp4" type="video/mp4" />
+        <!-- O atributo 'poster' exibe uma imagem caso a internet demore para carregar o vídeo -->
+        <video class="hero-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1600&q=80">
+            <!-- Link direto para um banco de vídeos gratuitos (Mixkit). Mostra uma estrada numa floresta -->
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-driving-on-a-highway-through-a-forest-27044-large.mp4" type="video/mp4" />
         </video>
         <div class="content">
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
@@ -890,7 +892,7 @@
     </section>
 
     <!-- ============================================== -->
-    <!-- CERTIFICAÇÕES (NOVA SEÇÃO COM O CDF)           -->
+    <!-- CERTIFICAÇÕES -->
     <!-- ============================================== -->
     <section class="certificacoes">
         <div class="cert-header">
