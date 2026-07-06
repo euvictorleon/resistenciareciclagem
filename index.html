@@ -115,7 +115,7 @@
             align-items: center; 
             padding-top: 80px; 
             overflow: hidden;
-            background-color: #000; /* Fundo escuro enquanto o vídeo carrega */
+            background-color: #000; 
         }
 
         .hero video.hero-video {
@@ -432,16 +432,16 @@
         }
 
         /* ==================================================== */
-        /* CERTIFICAÇÕES (ATUALIZADO PARA ESTILO DARK/GREEN)    */
+        /* CERTIFICAÇÕES (ESTILO DARK/GREEN)                    */
         /* ==================================================== */
         section.certificacoes {
             padding: 100px 5%;
-            background-color: var(--cinza-escuro); /* Fundo cinza escuro */
+            background-color: var(--cinza-escuro); 
             text-align: center;
         }
 
         .cert-header h5 {
-            color: var(--verde-destaque); /* Verde vivo */
+            color: var(--verde-destaque); 
             font-size: 0.95rem;
             font-weight: 800;
             letter-spacing: 2px;
@@ -452,7 +452,7 @@
         .cert-header h2 {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #fff; /* Título em branco */
+            color: #fff; 
             margin-bottom: 50px;
             line-height: 1.2;
         }
@@ -466,29 +466,29 @@
         }
 
         .cert-card {
-            background: var(--preto-chumbo); /* Fundo do card no tom chumbo */
+            background: var(--preto-chumbo); 
             padding: 40px 20px;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05); /* Borda fina para destacar sutilmente */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4); /* Sombra mais profunda */
+            border: 1px solid rgba(255,255,255,0.05); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); 
             transition: transform 0.3s, border-color 0.3s;
         }
 
         .cert-card:hover {
             transform: translateY(-8px);
-            border-color: var(--verde-primario); /* Borda fica verde no hover */
+            border-color: var(--verde-primario); 
         }
 
         .cert-icon {
             width: 60px;
             height: 60px;
-            background: var(--verde-primario); /* Ícones com o verde do botão */
+            background: var(--verde-primario); 
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 5px 15px rgba(0, 138, 75, 0.3); /* Sombrinha verde pra dar brilho */
+            box-shadow: 0 5px 15px rgba(0, 138, 75, 0.3); 
         }
 
         .cert-icon svg {
@@ -500,13 +500,13 @@
         .cert-card h4 {
             font-size: 1.2rem;
             font-weight: 800;
-            color: #fff; /* Títulos dos cards em branco */
+            color: #fff; 
             margin-bottom: 10px;
         }
 
         .cert-card p {
             font-size: 0.95rem;
-            color: var(--texto-claro); /* Texto cinza clarinho */
+            color: var(--texto-claro); 
             line-height: 1.5;
         }
 
@@ -793,12 +793,11 @@
         <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO com VÍDEO ONLINE EMBUTIDO -->
+    <!-- HERO com VÍDEO ONLINE DE ALTA DISPONIBILIDADE -->
     <section class="hero">
-        <!-- O atributo 'poster' exibe uma imagem caso a internet demore para carregar o vídeo -->
+        <!-- Vídeo CDN público do Coverr (100% online e gratuito) -->
         <video class="hero-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1600&q=80">
-            <!-- Link direto para um banco de vídeos gratuitos (Mixkit). Mostra uma estrada numa floresta -->
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-driving-on-a-highway-through-a-forest-27044-large.mp4" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-driving-through-a-forest-5144/1080p.mp4" type="video/mp4" />
         </video>
         <div class="content">
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
@@ -892,7 +891,7 @@
     </section>
 
     <!-- ============================================== -->
-    <!-- CERTIFICAÇÕES -->
+    <!-- CERTIFICAÇÕES (NOVA SEÇÃO COM O CDF)           -->
     <!-- ============================================== -->
     <section class="certificacoes">
         <div class="cert-header">
@@ -954,7 +953,7 @@
         </div>
     </section>
 
-    <!-- Parceiros com Badge -->
+    <!-- Parceiros com Badge e Imagem Placeholder Provisória -->
     <section class="parceiros">
         <h2>Grandes marcas confiam na gente</h2>
         <p>Parcerias sólidas com empresas que levam a sustentabilidade a sério.</p>
@@ -967,9 +966,10 @@
                     <div class="logo-item"><img src="vivo.png" alt="Vivo" /></div>
                     <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa" /></div>
                     <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger" /></div>
+                    <!-- Imagem temporária online para preencher o vazio. Troque o src para "bardoacougueiro.png" quando tiver a foto -->
                     <div class="logo-item">
                         <span class="badge-unidades">3 UNIDADES</span>
-                        <img src="bardoacougueiro.png" alt="O Bar do Açougueiro" />
+                        <img src="https://via.placeholder.com/160x60/f8fafc/0d0d0f?text=Bar+do+Acougueiro" alt="O Bar do Açougueiro" />
                     </div>
                     <div class="logo-item"><img src="familiafarinha.png" alt="Família Farinha" /></div>
                     <div class="logo-item"><img src="graciosa.png" alt="Graciosa" /></div>
@@ -981,9 +981,10 @@
                     <div class="logo-item"><img src="vivo.png" alt="Vivo" /></div>
                     <div class="logo-item"><img src="alphaville.png" alt="Alphaville Graciosa" /></div>
                     <div class="logo-item"><img src="drive in burger.png" alt="Drive in Burger" /></div>
+                    <!-- Imagem temporária replicada -->
                     <div class="logo-item">
                         <span class="badge-unidades">3 UNIDADES</span>
-                        <img src="bardoacougueiro.png" alt="O Bar do Açougueiro" />
+                        <img src="https://via.placeholder.com/160x60/f8fafc/0d0d0f?text=Bar+do+Acougueiro" alt="O Bar do Açougueiro" />
                     </div>
                     <div class="logo-item"><img src="familiafarinha.png" alt="Família Farinha" /></div>
                     <div class="logo-item"><img src="graciosa.png" alt="Graciosa" /></div>
@@ -1054,4 +1055,5 @@
     </script>
 </body>
 </html>
+
 
