@@ -430,6 +430,82 @@
             background: #0d0d0f; 
         }
 
+        /* ==================================================== */
+        /* CERTIFICAÇÕES (NOVA SEÇÃO ADICIONADA COM CDF) */
+        /* ==================================================== */
+        section.certificacoes {
+            padding: 100px 5%;
+            background-color: var(--cinza-claro);
+            text-align: center;
+        }
+
+        .cert-header h5 {
+            color: #1a56b8; /* Azul estilo certificação */
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .cert-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--preto-chumbo);
+            margin-bottom: 50px;
+            line-height: 1.2;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .cert-card {
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background: #1a56b8;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .cert-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: #fff;
+        }
+
+        .cert-card h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--preto-chumbo);
+            margin-bottom: 10px;
+        }
+
+        .cert-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
         /* Sustentabilidade - NOVO DESIGN (Glassmorphism e Impacto) */
         section.sustentabilidade {
             padding: 120px 5%;
@@ -713,10 +789,11 @@
         <a href="https://wa.me/5541998871864" class="btn-header">Falar com Consultor</a>
     </header>
 
-    <!-- HERO com vídeo (já linkado online pra você ver funcionando) -->
+    <!-- HERO com vídeo (Basta colocar o arquivo de vídeo na pasta do site) -->
     <section class="hero">
         <video class="hero-video" autoplay loop muted playsinline>
-            <source src="https://cdn.pixabay.com/video/2021/08/17/85375-589601662_large.mp4" type="video/mp4" />
+            <!-- Substitua "seu-video-aqui.mp4" pelo nome exato do seu arquivo de vídeo local -->
+            <source src="seu-video-aqui.mp4" type="video/mp4" />
         </video>
         <div class="content">
             <h1>A Solução de <span>Coleta</span> para o seu Negócio</h1>
@@ -809,6 +886,46 @@
         </div>
     </section>
 
+    <!-- ============================================== -->
+    <!-- CERTIFICAÇÕES (NOVA SEÇÃO COM O CDF)           -->
+    <!-- ============================================== -->
+    <section class="certificacoes">
+        <div class="cert-header">
+            <h5>CERTIFICAÇÕES</h5>
+            <h2>Empresa regularizada e alinhada às<br>normas ambientais brasileiras</h2>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <h4>SINIR</h4>
+                <p>Sistema Nacional de Informações sobre a Gestão dos Resíduos Sólidos</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <h4>Prefeitura de Curitiba</h4>
+                <p>Licença municipal de operação ambiental</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <h4>IAT</h4>
+                <p>Instituto Água e Terra – Governo do Paraná</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <h4>CDF</h4>
+                <p>Certificado de Destinação Final de Resíduos</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Sustentabilidade PREMIUM (Glassmorphism) -->
     <section class="sustentabilidade">
         <div class="glass-card">
@@ -871,7 +988,7 @@
         </div>
     </section>
 
-    <!-- Rodapé com endereço completo e MAPA DO GOOGLE -->
+    <!-- Rodapé com endereço atualizado e NOVO MAPA -->
     <footer>
         <div class="footer-grid">
             <div>
@@ -882,17 +999,17 @@
                 <div class="icon-pin">📍</div>
                 <div>
                     <strong>Nossa Sede</strong>
-                    <p>Rua Joares Bertolini, 363<br>Atuba, Curitiba - PR<br>CEP: 82630-300</p>
+                    <p>Rua Juarez Bertolini, 363<br>Cidade Industrial de Curitiba (CIC)<br>Curitiba - PR, 81270-052</p>
                 </div>
             </div>
 
-            <!-- Mapa pequeno integrado no rodapé -->
+            <!-- Mapa pequeno apontando para o novo endereço -->
             <div class="footer-mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.281691238947!2d-49.23190862371904!3d-25.39535353147775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce63f53835697%3A0xc3c6046e722a49b6!2sR.%20Joares%20Bertolini%2C%20363%20-%20Atuba%2C%20Curitiba%20-%20PR%2C%2082630-300!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://maps.google.com/maps?q=R.+Juarez+Bertolini,+363+-+Cidade+Industrial+de+Curitiba,+Curitiba+-+PR,+81270-052&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div class="footer-copy">
-            &copy; 2024 Resistência Reciclagem. Todos os direitos reservados.
+            &copy; 2026 Resistência Reciclagem. Todos os direitos reservados.
         </div>
     </footer>
 
